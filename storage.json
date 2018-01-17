@@ -4,7 +4,7 @@
 	"parameters": {
 		"StorageAccount" : {
 			"type": "object",
-			"value": ""
+			"value": "null"
 		}
 	},
 	"variables": { },
