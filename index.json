@@ -1,0 +1,116 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"envPrefix": {
+			"type": "string"
+		},
+		"envLocation": {
+			"type": "string",
+			"defaultValue": "West Europe",
+			"allowedValues": [
+				"North Europe",
+				"West Europe"
+			]
+		},
+		"storageSku": {
+			"type": "string",
+			"defaultValue": "STANDARD_LRS",
+			"allowedValues": [
+				"STANDARD_GRS",
+				"STANDARD_LRS",
+				"STANDARD_RAGRS",
+				"STANDARD_ZRS"
+			]
+		},
+		"storageKind": {
+			"type": "string",
+			"defaultValue": "Storage",
+			"allowedValues": [
+				"Storage",
+				"StorageV2",
+				"BlobStorage"
+			]
+		},
+		"storageAccessTier": {
+			"type": "string"
+		},
+		"storageSupportHttpsTrafficOnly": {
+			"type": "string"
+		},
+		"addressPrefix": {
+			"type": "string"
+		},
+		"dnsServer": {
+			"type": "string"
+		},
+		"subnetName": {
+			"type": "string"
+		},
+		"subnetPrefix": {
+			"type": "string"
+		},
+		"storageTemplateLink": {
+			"type": "string"
+		},
+		"vnetTemplateLink": {
+			"type": "string"
+		}
+	},
+	"variables": {
+		"StorageAccount": {
+			"Name": "[concat(parameters('envPrefix'),'storage')]",
+			"Sku": "[parameters('storageSku')]",
+			"Kind": "[parameters('storageKind')]",
+			"Location": "[parameters('envLocation')]",
+			"storageAccessTier": "[parameters('storageAccessTier')]",
+			"storageSupportHttpsTrafficOnly": "[parameters('storageSupportHttpsTrafficOnly')]"
+		},
+		"VMStorageAccountContainerName": "vhds",
+		"VirtualNetwork": {
+			"Name": "[concat(parameters('envPrefix'),parameters('subnetName'))]",
+			"Location": "[parameters('envLocation')]",
+			"addressPrefix": "[parameters('addressPrefix')]",
+			"dnsServer": "[parameters('dnsServer')]",
+			"subnetName": "[parameters('subnetName')]",
+			"subnetPrefix": "[parameters('subnetPrefix')]"
+		}
+	},
+	"resources": [
+		{
+			"apiVersion": "2017-05-10",
+			"name": "storageTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('storageTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"StorageAccount": {
+						"value": "[variables('StorageAccount')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "vnetTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('vnetTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"VirtualNetwork": {
+						"value": "[variables('VirtualNetwork')]"
+					}
+				}
+			}
+		}
+	],
+	"outputs": { }
+}
