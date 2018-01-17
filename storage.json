@@ -21,7 +21,10 @@
 			"tags": {
 				"displayName": "[parameters('StorageAccount').Name]"
 			},
-			"properties": { }
+			"properties": {
+				"accessTier": "[parameters('StorageAccount').storageAccessTier]",
+				"supportHttpsTrafficOnly": "[parameters('StorageAccount').storageSupportHttpsTrafficOnly]"
+			}
 		}
 	],
 	"outputs": { }
