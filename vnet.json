@@ -30,7 +30,7 @@
 				},
 				"subnets": [
 					{
-						"id": "[parameters('VirtualNetwork').subnetName]",
+						"name": "[parameters('VirtualNetwork').subnetName]",
 						"properties": {
 							"addressPrefix": "[parameters('VirtualNetwork').subnetPrefix]"
 						}
