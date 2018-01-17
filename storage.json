@@ -3,7 +3,8 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"StorageAccount" : {
-			"type": "object"
+			"type": "object",
+			"value": "[parameters('StorageAccount')]"
 		}
 	},
 	"variables": { },
