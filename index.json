@@ -50,6 +50,63 @@
 		"subnetPrefix": {
 			"type": "string"
 		},
+		"publicIPAllocationMethod": {
+			"type": "string",
+			"defaultValue": "Dynamic",
+			"allowedValues": [
+				"Dynamic",
+				"Static"
+				
+			]
+		},
+		"privateIPAllocationMethod": {
+			"type": "string",
+			"defaultValue": "Dynamic",
+			"allowedValues": [
+				"Dynamic",
+				"Static"
+			]
+		},
+		"vmSize": {
+			"type": "string"
+		},
+		"vmAdminUserName": {
+			"type": "string"
+		},
+		"vmAdminPassword": {
+			"type": "string"
+		},
+		"vmOSPublisher": {
+			"type": "string"
+		},
+		"vmOSOffer": {
+			"type": "string"
+		},
+		"vmOSSku": {
+			"type": "string"
+		},
+		"vmOSVersion": {
+			"type": "string",
+			"defaultValue": "latest"
+		},
+		"vmDiskCaching": {
+			"type": "string",
+			"defaultValue": "ReadWrite",
+			"allowedValues": [
+				"ReadWrite",
+				"ReadOnly",
+				"None"
+			]
+		},
+		"vmCreateOptions": {
+			"type": "string",
+			"defaultValue": "FromImage",
+			"allowedValues": [
+				"FromImage",
+				"Empty",
+				"Attach"				
+			]
+		},
 		"storageTemplateLink": {
 			"type": "string"
 		},
@@ -79,7 +136,24 @@
 			"subnetPrefix": "[parameters('subnetPrefix')]"
 		},
 		"VirtualMachine": {
-			"Name": "[concat(parameters('envPrefix'),'vm')]"
+			"Name": "[concat(parameters('envPrefix'),'-vm')]",
+			"Location": "[parameters('envLocation')]",
+			"PIName": "[concat(parameters('VirtualMachine.Name'),'-pip')]",
+			"DomainNameLabel": "[concat(parameters('envLocation'),'dns1')]",
+			"IFName": "[concat(parameters('VirtualMachine.Name'),'-if')]",
+			"IFCfgName": "[concat(parameters('VirtualMachine.IFName'),'-cfg')]",
+			"StorageName": "[concat(parameters('VirtualMachine.Name'),'-storage')]",
+			"PublicIPAllocationMethod": "[parameters('publicIPAllocationMethod')]",
+			"PrivateIPAllocationMethod": "[parameters('privateIPAllocationMethod')]",
+			"VMSize": "[parameters('vmSize')]",
+			"VMAdminUserName": "[parameters('vmAdminUserName')]",
+			"VMAdminPassword": "[parameters('vmAdminPassword')]",
+			"VMOSPublisher": "[parameters('vmOSPublisher')]",
+			"VMOSOffer": "[parameters('vmOSOffer')]",
+			"VMOSSku": "[parameters('vmOSSku')]",
+			"VMOSVersion": "[parameters('vmOSVersion')]",
+			"VMDiskCaching": "[parameters('vmDiskCaching')]",
+			"VMCreateOption": "[parameters('vmCreateOptions')]"
 		}
 	},
 	"resources": [
@@ -113,6 +187,23 @@
 				"parameters": {
 					"VirtualNetwork": {
 						"value": "[variables('VirtualNetwork')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "vmTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('vmTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"VirtualMachine": {
+						"value": "[variables('VirtualMachine')]"
 					}
 				}
 			}
