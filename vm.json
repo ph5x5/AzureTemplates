@@ -1,0 +1,93 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"VirtualMachine" : {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"apiVersion": "2017-10-01",
+			"name": "[parameters('VirtualMachine').PIName]",
+			"type": "Microsoft.Network/publicIPAddresses",
+			"location": "[parameters('VirtualMachine').Location]",
+			"properties": {
+				"publicIPAllocationMethod": "[parameters('VirtualMachine').PublicIPAllocationMethod]",
+				"dnsSettings": {
+					"domainNameLabel": "[parameters('VirtualMachine').DomainNameLabel]"
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-10-01",
+			"name": "[parameters('VirtualMachine').IFName]",
+			"type": "Microsoft.Network/networkInterfaces",
+			"location": "[parameters('VirtualMachine').Location]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualMachine').PIName)]",
+				"[resourceId('Microsoft.Network/virtualNetworks', parameters('VirtualNetwork').Name)]"
+			],
+			"properties": {
+				"ipConfigurations": [
+					{
+						"name": "[parameters('VirtualMachine').IFCfgName]",
+						"properties": {
+							"privateIPAllocationMethod": "[parameters('VirtualMachine').PrivateIPAllocationMethod]",
+							"publicIPAddress": {
+								"id": "[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualMachine').PIName)]"
+							},
+							"subnet": {
+								"id": "[resourceId('Microsoft.Network/virtualNetworks/', parameters('VirtualNetwork').Name)]"
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"apiVersion": "2017-10-01",
+			"name": "[parameters('VirtualMachine').Name]",
+			"type": "Microsoft.Compute/virtualMachines",
+			"location": "[parameters('VirtualMachine').Location]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').IFName)]"
+			],
+			"tags": {
+				"displayName": "[parameters('VirtualMachine').Name]"
+			},
+			"properties": {
+				"hardwareProfile": {
+					"vmSize": "[parameters('VirtualMachine').VMSize]"
+				},
+				"osProfile": {
+					"computerName": "[parameters('VirtualMachine').Name]",
+					"adminUsername": "[parameters('VirtualMachine').VMAdminUserName]",
+					"adminPassword": "[parameters('VirtualMachine').VMAdminPassword]"
+				},
+				"storageProfile": {
+					"imageReference": {
+						"publisher": "[parameters('VirtualMachine').VMOSPublisher]",
+						"offer": "[parameters('VirtualMachine').VMOSOffer]",
+						"sku": "[parameters('VirtualMachine').VMOSSku]",
+						"version": "[parameters('VirtualMachine').VMOSVersion]"
+					}
+				},
+				"osDisk": {
+					"name": "[parameters('VirtualMachine').StorageName]",
+					"caching": "[parameters('VirtualMachine').VMDiskCaching]",
+					"createOption": "[parameters('VirtualMachine').VMCreateOption]"
+				}
+			},
+			"networkProfile": {
+				"networkInterfaces": [
+					{
+						"id": "[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').IFName)]"
+					}
+				]
+			}
+		}
+	],
+	"outputs": { }
+}
