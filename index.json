@@ -55,6 +55,9 @@
 		},
 		"vnetTemplateLink": {
 			"type": "string"
+		},
+		"vmTemplateLink": {
+			"type": "string"
 		}
 	},
 	"variables": {
@@ -74,6 +77,9 @@
 			"dnsServer": "[parameters('dnsServer')]",
 			"subnetName": "[parameters('subnetName')]",
 			"subnetPrefix": "[parameters('subnetPrefix')]"
+		},
+		"VirtualMachine": {
+			"Name": "[concat(parameters('envPrefix'),'vm')]"
 		}
 	},
 	"resources": [
