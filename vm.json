@@ -10,44 +10,6 @@
 	"resources": [
 		{
 			"apiVersion": "2017-10-01",
-			"name": "[parameters('VirtualMachine').PIName]",
-			"type": "Microsoft.Network/publicIPAddresses",
-			"location": "[parameters('VirtualMachine').Location]",
-			"properties": {
-				"publicIPAllocationMethod": "[parameters('VirtualMachine').PublicIPAllocationMethod]",
-				"dnsSettings": {
-					"domainNameLabel": "[parameters('VirtualMachine').DomainNameLabel]"
-				}
-			}
-		},
-		{
-			"apiVersion": "2017-10-01",
-			"name": "[parameters('VirtualMachine').IFName]",
-			"type": "Microsoft.Network/networkInterfaces",
-			"location": "[parameters('VirtualMachine').Location]",
-			"dependsOn": [
-				"[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualMachine').PIName)]",
-				"[resourceId('Microsoft.Network/virtualNetworks', parameters('VirtualNetwork').Name)]"
-			],
-			"properties": {
-				"ipConfigurations": [
-					{
-						"name": "[parameters('VirtualMachine').IFCfgName]",
-						"properties": {
-							"privateIPAllocationMethod": "[parameters('VirtualMachine').PrivateIPAllocationMethod]",
-							"publicIPAddress": {
-								"id": "[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualMachine').PIName)]"
-							},
-							"subnet": {
-								"id": "[resourceId('Microsoft.Network/virtualNetworks/', parameters('VirtualNetwork').Name)]"
-							}
-						}
-					}
-				]
-			}
-		},
-		{
-			"apiVersion": "2017-10-01",
 			"name": "[parameters('VirtualMachine').Name]",
 			"type": "Microsoft.Compute/virtualMachines",
 			"location": "[parameters('VirtualMachine').Location]",

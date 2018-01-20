@@ -133,15 +133,15 @@
 			"addressPrefix": "[parameters('addressPrefix')]",
 			"dnsServer": "[parameters('dnsServer')]",
 			"subnetName": "[parameters('subnetName')]",
-			"subnetPrefix": "[parameters('subnetPrefix')]"
+			"subnetPrefix": "[parameters('subnetPrefix')]",
+			"PIName": "[concat(parameters('envPrefix'),'-vm-pip')]",
+			"DomainNameLabel": "[concat(parameters('envLocation'),'dns1')]",
+			"IFName": "[concat(parameters('envPrefix'),'-vm-if')]",
+			"IFCfgName": "[concat(parameters('envPrefix'),'-vm-if-cfg')]"
 		},
 		"VirtualMachine": {
 			"Name": "[concat(parameters('envPrefix'),'-vm')]",
 			"Location": "[parameters('envLocation')]",
-			"PIName": "[concat(parameters('envPrefix'),'-vm-pip')]",
-			"DomainNameLabel": "[concat(parameters('envLocation'),'dns1')]",
-			"IFName": "[concat(parameters('envPrefix'),'-vm-if')]",
-			"IFCfgName": "[concat(parameters('envPrefix'),'-vm-if-cfg')]",
 			"StorageName": "[concat(parameters('envPrefix'),'-vm-storage')]",
 			"PublicIPAllocationMethod": "[parameters('publicIPAllocationMethod')]",
 			"PrivateIPAllocationMethod": "[parameters('privateIPAllocationMethod')]",
@@ -204,9 +204,6 @@
 				"parameters": {
 					"VirtualMachine": {
 						"value": "[variables('VirtualMachine')]"
-					},
-					"VirtualNetwork": {
-						"value": "[variables('VirtualNetwork')]"
 					}
 				}
 			}

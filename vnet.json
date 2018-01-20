@@ -37,6 +37,44 @@
 					}
 				]
 			}
+		},
+		{
+			"apiVersion": "2017-10-01",
+			"name": "[parameters('VirtualNetwork').PIName]",
+			"type": "Microsoft.Network/publicIPAddresses",
+			"location": "[parameters('VirtualNetwork').Location]",
+			"properties": {
+				"publicIPAllocationMethod": "[parameters('VirtualNetwork').PublicIPAllocationMethod]",
+				"dnsSettings": {
+					"domainNameLabel": "[parameters('VirtualNetwork').DomainNameLabel]"
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-10-01",
+			"name": "[parameters('VirtualNetwork').IFName]",
+			"type": "Microsoft.Network/networkInterfaces",
+			"location": "[parameters('VirtualNetwork').Location]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualNetwork').PIName)]",
+				"[resourceId('Microsoft.Network/virtualNetworks', parameters('VirtualNetwork').Name)]"
+			],
+			"properties": {
+				"ipConfigurations": [
+					{
+						"name": "[parameters('VirtualNetwork').IFCfgName]",
+						"properties": {
+							"privateIPAllocationMethod": "[parameters('VirtualNetwork').PrivateIPAllocationMethod]",
+							"publicIPAddress": {
+								"id": "[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualNetwork').PIName)]"
+							},
+							"subnet": {
+								"id": "[resourceId('Microsoft.Network/virtualNetworks/', parameters('VirtualNetwork').Name)]"
+							}
+						}
+					}
+				]
+			}
 		}
 	],
 	"outputs": { }
