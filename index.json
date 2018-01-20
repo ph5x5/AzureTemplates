@@ -204,6 +204,9 @@
 				"parameters": {
 					"VirtualMachine": {
 						"value": "[variables('VirtualMachine')]"
+					},
+					"VirtualNetwork": {
+						"value": "[variables('VirtualNetwork')]"
 					}
 				}
 			}
