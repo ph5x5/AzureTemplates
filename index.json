@@ -135,7 +135,7 @@
 			"subnetName": "[parameters('subnetName')]",
 			"subnetPrefix": "[parameters('subnetPrefix')]",
 			"PIName": "[concat(parameters('envPrefix'),'-vm-pip')]",
-			"DomainNameLabel": "[concat(parameters('envLocation'),'dns1')]",
+			"DomainNameLabel": "[concat(parameters('envPrefix'),'dns1')]",
 			"IFName": "[concat(parameters('envPrefix'),'-vm-if')]",
 			"IFCfgName": "[concat(parameters('envPrefix'),'-vm-if-cfg')]",
 			"PublicIPAllocationMethod": "[parameters('publicIPAllocationMethod')]",
