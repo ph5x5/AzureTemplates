@@ -78,14 +78,14 @@
 					"name": "[parameters('VirtualMachine').StorageName]",
 					"caching": "[parameters('VirtualMachine').VMDiskCaching]",
 					"createOption": "[parameters('VirtualMachine').VMCreateOption]"
+				},
+				"networkProfile": {
+					"networkInterfaces": [
+						{
+							"id": "[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').IFName)]"
+						}
+					]
 				}
-			},
-			"networkProfile": {
-				"networkInterfaces": [
-					{
-						"id": "[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').IFName)]"
-					}
-				]
 			}
 		}
 	],
