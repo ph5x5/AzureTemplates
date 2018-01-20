@@ -33,12 +33,12 @@
 						"offer": "[parameters('VirtualMachine').VMOSOffer]",
 						"sku": "[parameters('VirtualMachine').VMOSSku]",
 						"version": "[parameters('VirtualMachine').VMOSVersion]"
+					},
+					"osDisk": {
+						"name": "[parameters('VirtualMachine').StorageName]",
+						"caching": "[parameters('VirtualMachine').VMDiskCaching]",
+						"createOption": "[parameters('VirtualMachine').VMCreateOption]"
 					}
-				},
-				"osDisk": {
-					"name": "[parameters('VirtualMachine').StorageName]",
-					"caching": "[parameters('VirtualMachine').VMDiskCaching]",
-					"createOption": "[parameters('VirtualMachine').VMCreateOption]"
 				},
 				"networkProfile": {
 					"networkInterfaces": [
