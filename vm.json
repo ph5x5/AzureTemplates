@@ -13,8 +13,7 @@
 			"name": "[parameters('VirtualMachine').Name]",
 			"type": "Microsoft.Compute/virtualMachines",
 			"location": "[parameters('VirtualMachine').Location]",
-			"dependsOn": [
-			],
+			"dependsOn": [ ],
 			"tags": {
 				"displayName": "[parameters('VirtualMachine').Name]"
 			},

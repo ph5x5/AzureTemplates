@@ -107,6 +107,24 @@
 				"Attach"				
 			]
 		},
+		"_artifactsLocation": {
+			"type": "string"
+		},
+		"_artifactsLocationSasToken": {
+			"type": "string"
+		},
+		"dscExtensionArchiveFolder": {
+			"type": "string"
+		},
+		"dscExtensionArchiveFileName": {
+			"type": "string"
+		},
+		"dscExtensionFunction": {
+			"type": "string"
+		},
+		"dscIISBindPort": {
+			"type": "string"
+		},
 		"storageTemplateLink": {
 			"type": "string"
 		},
@@ -114,6 +132,9 @@
 			"type": "string"
 		},
 		"vmTemplateLink": {
+			"type": "string"
+		},
+		"iisTemplateLink": {
 			"type": "string"
 		}
 	},
@@ -128,7 +149,7 @@
 		},
 		"VMStorageAccountContainerName": "vhds",
 		"VirtualNetwork": {
-			"Name": "[concat(parameters('envPrefix'),parameters('subnetName'))]",
+			"Name": "[concat(parameters('envPrefix'), 'VNet')]",
 			"Location": "[parameters('envLocation')]",
 			"addressPrefix": "[parameters('addressPrefix')]",
 			"dnsServer": "[parameters('dnsServer')]",
@@ -155,6 +176,15 @@
 			"VMDiskCaching": "[parameters('vmDiskCaching')]",
 			"VMCreateOption": "[parameters('vmCreateOptions')]",
 			"InterfaceName": "[concat(parameters('envPrefix'),'-vm-if')]"
+		},
+		"DSC": {
+			"Location": "[parameters('envLocation')]",
+			"_artifactsLocation": "[parameters('_artifactsLocation')]",
+			"_artifactsLocationSasToken": "[parameters('_artifactsLocationSasToken')]",
+			"dscExtensionArchiveFolder": "[parameters('dscExtensionArchiveFolder')]",
+			"dscExtensionArchiveFileName": "[parameters('dscExtensionArchiveFileName')]",
+			"dscExtensionFunction": "[parameters('dscExtensionFunction')]",
+			"dscIISBindPort": "[parameters('dscIISBindPort')]"
 		}
 	},
 	"resources": [
@@ -196,6 +226,9 @@
 			"apiVersion": "2017-05-10",
 			"name": "vmTemplate",
 			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments/', 'vnetTemplate')]"
+			],
 			"properties": {
 				"mode": "Incremental",
 				"templateLink": {
@@ -205,6 +238,26 @@
 				"parameters": {
 					"VirtualMachine": {
 						"value": "[variables('VirtualMachine')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "iisTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn":[
+				"[resourceId('Microsoft.Resources/deployments/', 'vmTemplate')]"
+			],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('iisTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"DSC": {
+						"value": "[variables('DSC')]"
 					}
 				}
 			}
