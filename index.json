@@ -153,7 +153,8 @@
 			"VMOSSku": "[parameters('vmOSSku')]",
 			"VMOSVersion": "[parameters('vmOSVersion')]",
 			"VMDiskCaching": "[parameters('vmDiskCaching')]",
-			"VMCreateOption": "[parameters('vmCreateOptions')]"
+			"VMCreateOption": "[parameters('vmCreateOptions')]",
+			"IFName": "[concat(parameters('envPrefix'),'-vm-if')]"
 		}
 	},
 	"resources": [
