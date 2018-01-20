@@ -154,7 +154,7 @@
 			"VMOSVersion": "[parameters('vmOSVersion')]",
 			"VMDiskCaching": "[parameters('vmDiskCaching')]",
 			"VMCreateOption": "[parameters('vmCreateOptions')]",
-			"IFName": "[concat(parameters('envPrefix'),'-vm-if')]"
+			"InterfaceName": "[concat(parameters('envPrefix'),'-vm-if')]"
 		}
 	},
 	"resources": [

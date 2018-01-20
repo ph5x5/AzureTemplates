@@ -14,7 +14,7 @@
 			"type": "Microsoft.Compute/virtualMachines",
 			"location": "[parameters('VirtualMachine').Location]",
 			"dependsOn": [
-				"[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').IFName)]"
+				"[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').InterfaceName)]"
 			],
 			"tags": {
 				"displayName": "[parameters('VirtualMachine').Name]"
@@ -44,7 +44,7 @@
 				"networkProfile": {
 					"networkInterfaces": [
 						{
-							"id": "[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').IFName)]"
+							"id": "[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').InterfaceName)]"
 						}
 					]
 				}
