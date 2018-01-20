@@ -9,7 +9,7 @@
 	"variables": { },
 	"resources": [
 		{
-			"apiVersion": "2017-10-01",
+			"apiVersion": "2017-12-01",
 			"name": "[parameters('VirtualMachine').Name]",
 			"type": "Microsoft.Compute/virtualMachines",
 			"location": "[parameters('VirtualMachine').Location]",
