@@ -137,14 +137,14 @@
 			"PIName": "[concat(parameters('envPrefix'),'-vm-pip')]",
 			"DomainNameLabel": "[concat(parameters('envLocation'),'dns1')]",
 			"IFName": "[concat(parameters('envPrefix'),'-vm-if')]",
-			"IFCfgName": "[concat(parameters('envPrefix'),'-vm-if-cfg')]"
+			"IFCfgName": "[concat(parameters('envPrefix'),'-vm-if-cfg')]",
+			"PublicIPAllocationMethod": "[parameters('publicIPAllocationMethod')]",
+			"PrivateIPAllocationMethod": "[parameters('privateIPAllocationMethod')]"
 		},
 		"VirtualMachine": {
 			"Name": "[concat(parameters('envPrefix'),'-vm')]",
 			"Location": "[parameters('envLocation')]",
 			"StorageName": "[concat(parameters('envPrefix'),'-vm-storage')]",
-			"PublicIPAllocationMethod": "[parameters('publicIPAllocationMethod')]",
-			"PrivateIPAllocationMethod": "[parameters('privateIPAllocationMethod')]",
 			"VMSize": "[parameters('vmSize')]",
 			"VMAdminUserName": "[parameters('vmAdminUserName')]",
 			"VMAdminPassword": "[parameters('vmAdminPassword')]",
