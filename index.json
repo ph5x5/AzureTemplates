@@ -7,10 +7,10 @@
 		},
 		"envLocation": {
 			"type": "string",
-			"defaultValue": "westeurope",
+			"defaultValue": "West Europe",
 			"allowedValues": [
-				"northeurope",
-				"westeurope"
+				"North Europe",
+				"West Europe"
 			]
 		},
 		"storageSku": {
