@@ -82,9 +82,7 @@
 			},
 			"networkProfile": {
 				"networkInterfaces": [
-					{
-						"id": "[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').IFName)]"
-					}
+					"id": "[resourceId('Microsoft.Network/networkInterfaces/', parameters('VirtualMachine').IFName)]"
 				]
 			}
 		}
