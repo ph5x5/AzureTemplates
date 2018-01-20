@@ -10,8 +10,8 @@
 	"resources": [
 		{
 			"apiVersion": "2015-06-15",
-			"name": "Microsoft.Powershell.DSC",
-			"type": "DSC",
+			"name": "DSC",
+			"type": "extensions",
 			"location": "[parameters('DSC').Location]",
 			"dependsOn": [ ],
 			"tags": {
