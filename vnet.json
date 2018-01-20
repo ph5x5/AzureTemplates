@@ -57,7 +57,7 @@
 			"location": "[parameters('VirtualNetwork').Location]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualNetwork').PIName)]",
-				"[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('VirtualNetwork').SubnetName)]"
+				"[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('VirtualNetwork').subnetName)]"
 			],
 			"properties": {
 				"ipConfigurations": [
@@ -69,7 +69,7 @@
 								"id": "[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualNetwork').PIName)]"
 							},
 							"subnet": {
-								"id": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('VirtualNetwork').SubnetName)]"
+								"id": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('VirtualNetwork').subnetName)]"
 							}
 						}
 					}
