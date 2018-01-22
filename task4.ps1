@@ -4,8 +4,6 @@
 
 # Global configuration
 $envLocation = "West Europe"
-$_artifactsLocation = "https://csbf904e53bc8b7x4111x93b.file.core.windows.net"
-$_artifactsLocationSasToken = "?sv=2017-04-17&ss=f&srt=sco&sp=r&se=2018-01-21T01:51:59Z&st=2018-01-19T17:51:59Z&spr=https,http&sig=y17tHAmhHVUiSQkkO%2BN2EGbBBsE1CNZBNSsLw1mbk3Y%3D"
 $TemplateFile = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/index.json"
 $envPrefix = "learning4"
 $storageTemplateLink = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/storage.json"
@@ -43,8 +41,12 @@ $vmDiskCaching = "ReadWrite"
 $vmCreateOption = "FromImage"
 
 # DSC Configuration
+$_artifactsLocation = "https://csbf904e53bc8b7x4111x93b.file.core.windows.net"
+$_artifactsLocationSasToken = "?sv=2017-04-17&ss=f&srt=sco&sp=r&se=2018-02-17T22:26:09Z&st=2018-01-21T14:26:09Z&spr=https,http&sig=ffY3b9%2BUV9h7gxyKDU8v%2B9o43WZXMU2wWwEREn8DMjU%3D"
 $dscExtensionArchiveFolder = "cs-andrey-murzich-epam-com-1003bffda4a875ae"
-$dscExtensionArchiveFileName = "iis.ps1"
+
+$dscExtensionArchiveFileName = "iis.zip"
+$dscExtensionScriptName = "iis.ps1"
 $dscExtensionFunction = "Configuration IIS"
 $dscIISBindPort = "8080"
 
@@ -80,6 +82,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix `
                                    -_artifactsLocationSasToken $_artifactsLocationSasToken `
                                    -dscExtensionArchiveFolder $dscExtensionArchiveFolder `
                                    -dscExtensionArchiveFileName $dscExtensionArchiveFileName `
+                                   -dscExtensionScriptName $dscExtensionScriptName `
                                    -dscExtensionFunction $dscExtensionFunction `
                                    -dscIISBindPort $dscIISBindPort `
                                    -storageTemplateLink $storageTemplateLink `
