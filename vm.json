@@ -79,7 +79,7 @@
 							}
 						},
 						"protectedSettings": {
-							"configurationUrlSasToken": "[parameters('DSC')._artifactsLocationSasToken]"
+							"configurationUrlSasToken": "?sv=2017-04-17&ss=f&srt=sco&sp=r&se=2018-02-17T22:26:09Z&st=2018-01-21T14:26:09Z&spr=https,http&sig=ffY3b9%2BUV9h7gxyKDU8v%2B9o43WZXMU2wWwEREn8DMjU%3D"
 						}
 					}
 				}
