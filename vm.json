@@ -78,7 +78,7 @@
 							}
 						},
 						"protectedSettings": {
-							"configurationUrlSasToken": "[parameters('DSC')._artifactsLocationSasToken]"
+							null
 						}
 					}
 				}
