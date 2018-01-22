@@ -119,6 +119,9 @@
 		"dscExtensionArchiveFileName": {
 			"type": "string"
 		},
+		"dscExtensionScriptName": {
+			"type": "string"
+		},
 		"dscExtensionFunction": {
 			"type": "string"
 		},
@@ -184,6 +187,7 @@
 			"_artifactsLocationSasToken": "[parameters('_artifactsLocationSasToken')]",
 			"dscExtensionArchiveFolder": "[parameters('dscExtensionArchiveFolder')]",
 			"dscExtensionArchiveFileName": "[parameters('dscExtensionArchiveFileName')]",
+			"dscExtensionScriptName": "[parameters('dscExtensionScriptName')]",
 			"dscExtensionFunction": "[parameters('dscExtensionFunction')]",
 			"dscIISBindPort": "[parameters('dscIISBindPort')]"
 		}
