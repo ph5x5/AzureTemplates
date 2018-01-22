@@ -57,8 +57,6 @@
 			"type": "Microsoft.Network/networkInterfaces",
 			"location": "[parameters('VirtualNetwork').Location]",
 			"dependsOn": [
-				"[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualNetwork').PIName)]",
-				"[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('VirtualNetwork').Name, parameters('VirtualNetwork').subnetName)]"
 			],
 			"properties": {
 				"ipConfigurations": [
