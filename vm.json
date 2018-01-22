@@ -57,7 +57,7 @@
 					"type": "Microsoft.Compute/virtualMachines/extensions",
 					"location": "[parameters('DSC').Location]",
 					"dependsOn": [
-						"[resourceId('Microsoft.Compute/virtualMachines/', 'VirtualMachine.Name')]"
+						"[resourceId('Microsoft.Compute/virtualMachines/', parameters('VirtualMachine').Name)]"
 					],
 					"tags": {
 						"displayName": "Microsoft.Powershell.DSC"
