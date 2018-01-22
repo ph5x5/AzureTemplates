@@ -70,7 +70,7 @@
 								"id": "[resourceId('Microsoft.Network/publicIPAddresses/', parameters('VirtualNetwork').PIName)]"
 							},
 							"subnet": {
-								"id": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('VirtualNetwork').Name, parameters('VirtualNetwork').subnetName)]"
+								"id": "[concat('Microsoft.Network/virtualNetworks/', parameters('VirtualNetwork').Name, '/subnets/', parameters('VirtualNetwork').subnetName)]"
 							}
 						}
 					}
