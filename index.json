@@ -228,7 +228,7 @@
 			"name": "vmTemplate",
 			"type": "Microsoft.Resources/deployments",
 			"dependsOn": [
-				"[resourceId('Microsoft.Network/virtualNetworks/subnets/', variables('VirtualNetwork').Name, variables('VirtualNetwork').subnetName)]"
+				"[resourceId('Microsoft.Resources/deployments/', 'vnetTemplate']"
 			],
 			"properties": {
 				"mode": "Incremental",
