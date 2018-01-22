@@ -58,7 +58,7 @@
 			"location": "[parameters('VirtualNetwork').Location]",
 			"dependsOn": [
 				"[concat('Microsoft.Network/publicIPAddresses/', parameters('VirtualNetwork').PIName)]",
-				"[concat('Microsoft.Network/virtualNetworks/', parameters('VirtualNetwork').Name, '/subnets/', parameters('VirtualNetwork').subnetName)]"
+				"[concat('Microsoft.Network/virtualNetworks/', parameters('VirtualNetwork').Name, '/subnets/', 'Subnet']"
 			],
 			"properties": {
 				"ipConfigurations": [
