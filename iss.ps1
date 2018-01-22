@@ -8,7 +8,7 @@ Configuration IIS
 	xWebSite Website
 	{
 		Name = 'Website'
-		PhysicalPath = 'D:\Webroot\website\
+		PhysicalPath = 'D:\Webroot\website\'
 		ApplicationPool = 'AppPool'
 		BindingInfo = @(
 			MSFT_xWebBindingInformation
