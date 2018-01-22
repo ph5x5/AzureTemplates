@@ -69,7 +69,7 @@
 						"autoUpgradeMinorVersion": true,
 						"settings": {
 							"configuration": {
-								"url": "https://csbf904e53bc8b7x4111x93b.file.core.windows.net/cs-andrey-murzich-epam-com-1003bffda4a875ae/iis.zip",
+								"url": "http://csbf904e53bc8b7x4111x93b.file.core.windows.net/cs-andrey-murzich-epam-com-1003bffda4a875ae/iis.zip",
 								"script": "[parameters('DSC').dscExtensionScriptName]",
 								"function": "[parameters('DSC').dscExtensionFunction]"
 							},
