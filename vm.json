@@ -69,7 +69,7 @@
 						"autoUpgradeMinorVersion": true,
 						"settings": {
 							"configuration": {
-								"url": "[concat(parameters('DSC')._artifactsLocation, '/', parameters('DSC').dscExtensionArchiveFolder, '/', parameters('DSC').dscExtensionArchiveFileName)]",
+								"url": "[concat(parameters('DSC')._artifactsLocation, '/', parameters('DSC').dscExtensionArchiveFolder, '/', parameters('DSC').dscExtensionArchiveFileName, parameters('DSC')._artifactsLocationSasToken)]",
 								"script": "parameters('DSC').dscExtensionArchiveFileName",
 								"function": "parameters('DSC').dscExtensionFunction"
 							},
