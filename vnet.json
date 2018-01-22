@@ -30,7 +30,7 @@
 				},
 				"subnets": [
 					{
-						"name": "[parameters('VirtualNetwork').subnetName]",
+						"name": "[concat('Microsoft.Network/virtualNetworks/subnets/', parameters('VirtualNetwork').Name, '/', parameters('VirtualNetwork').subnetName)]",
 						"location": "[parameters('VirtualNetwork').Location]",
 						"properties": {
 							"addressPrefix": "[parameters('VirtualNetwork').subnetPrefix]"
