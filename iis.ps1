@@ -1,6 +1,6 @@
 Configuration IIS
 {
-	param ($machineName, $bindPort)
+	param ($machineName)
 	Node $machineName {
 		WindowsFeature IIS {
 			Ensure = "Present"
