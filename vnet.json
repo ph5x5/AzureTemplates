@@ -30,7 +30,7 @@
 				},
 				"subnets": [
 					{
-						"name": "[concat('Microsoft.Network/virtualNetworks/subnets/', parameters('VirtualNetwork').Name, '/', parameters('VirtualNetwork').subnetName)]",
+						"name": "[parameters('VirtualNetwork').subnetName]",
 						"location": "[parameters('VirtualNetwork').Location]",
 						"properties": {
 							"addressPrefix": "[parameters('VirtualNetwork').subnetPrefix]"
@@ -58,7 +58,7 @@
 			"location": "[parameters('VirtualNetwork').Location]",
 			"dependsOn": [
 				"[concat('Microsoft.Network/publicIPAddresses/', parameters('VirtualNetwork').PIName)]",
-				"[concat('Microsoft.Network/virtualNetworks/subnets/', parameters('VirtualNetwork').Name, '/', parameters('VirtualNetwork').subnetName)]"
+				"[concat('Microsoft.Network/virtualNetworks/', parameters('VirtualNetwork').Name, '/subnets/', parameters('VirtualNetwork').subnetName)]"
 			],
 			"properties": {
 				"ipConfigurations": [
