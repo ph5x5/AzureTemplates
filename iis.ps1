@@ -1,7 +1,6 @@
 Configuration IIS
 {
-	param ($machineName)
-	Node $machineName {
+	Node learning4-vm {
 		WindowsFeature IIS {
 			Ensure = "Present"
 			Name = "Web-Server"
