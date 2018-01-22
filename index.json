@@ -178,6 +178,7 @@
 			"InterfaceName": "[concat(parameters('envPrefix'),'-vm-if')]"
 		},
 		"DSC": {
+			"Name": "[concat(parameters('envPrefix'),'-dsc')]",
 			"Location": "[parameters('envLocation')]",
 			"_artifactsLocation": "[parameters('_artifactsLocation')]",
 			"_artifactsLocationSasToken": "[parameters('_artifactsLocationSasToken')]",

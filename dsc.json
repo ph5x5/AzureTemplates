@@ -10,8 +10,8 @@
 	"resources": [
 		{
 			"apiVersion": "2015-06-15",
-			"name": "Microsoft.Powershell",
-			"type": "DSC",
+			"name": "[parameters('DSC').Name]",
+			"type": "Microsoft.Compute/virtualMachines/extensions",
 			"location": "[parameters('DSC').Location]",
 			"dependsOn": [ ],
 			"tags": {
