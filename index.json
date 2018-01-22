@@ -239,24 +239,7 @@
 				"parameters": {
 					"VirtualMachine": {
 						"value": "[variables('VirtualMachine')]"
-					}
-				}
-			}
-		},
-		{
-			"apiVersion": "2017-05-10",
-			"name": "iisTemplate",
-			"type": "Microsoft.Resources/deployments",
-			"dependsOn":[
-				"[resourceId('Microsoft.Resources/deployments/', 'vmTemplate')]"
-			],
-			"properties": {
-				"mode": "Incremental",
-				"templateLink": {
-					"uri": "[parameters('iisTemplateLink')]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
+					},
 					"DSC": {
 						"value": "[variables('DSC')]"
 					}
