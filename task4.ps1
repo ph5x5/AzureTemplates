@@ -90,3 +90,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix `
                                    -vmTemplateLink $vmTemplateLink `
                                    -iisTemplateLink $iisTemplateLink `
                                    -Force -Verbose
+
+$dscSettings = "{'url': '$_artifactsLocation/$dscExtensionArchiveFolder/$dscExtensionArchiveFileName', 'script': '$dscExtensionScriptName', 'function': '$dscExtensionFunction', 'protectedSettings': {'configurationUrlSasToken': '$_artifactsLocationSasToken'}, 'Properties': {'bindPort': '$dscIISBindPort', 'machineName': '$envPrefix-vm'}}"
+
+Set-AzureRmVMExtension -ExtensionName "DSC" -ResourceGroupName $envPrefix -VMName "$envPrefix-vm" -Publisher "Microsoft.Powershell" `
+                       -ExtensionType "DSC" -TypeHandlerVersion 2.27 -SettingString $dscSettings -Location $envLocation
