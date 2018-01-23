@@ -60,7 +60,7 @@
 						"[resourceId('Microsoft.Compute/virtualMachines/', parameters('VirtualMachine').Name)]"
 					],
 					"tags": {
-						"displayName": "IIS DSC"
+						"displayName": "Microsoft.Powershell.DSC"
 					},
 					"properties": {
 						"publisher": "Microsoft.Powershell",
