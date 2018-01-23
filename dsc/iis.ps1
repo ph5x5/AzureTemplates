@@ -10,4 +10,4 @@ Configuration InstallIIS
 			Name = "Web-Server"
 		}
 	}
-|
+}
