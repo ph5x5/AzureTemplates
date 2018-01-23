@@ -74,7 +74,8 @@
 								"function": "[parameters('DSC').dscExtensionFunction]"
 							},
 							"properties": {
-								"machineName": "[parameters('VirtualMachine').Name]"
+								"machineName": "[parameters('VirtualMachine').Name]",
+								"Configuration": "[parameters('DSC').dscExtensionFunction]"
 							}
 						},
 						"protectedSettings": {
