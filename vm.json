@@ -52,7 +52,7 @@
 			},
 			"resources": [
 				{
-					"apiVersion": "2015-06-15",
+					"apiVersion": "2015-05-01",
 					"name": "[parameters('DSC').Name]",
 					"type": "Microsoft.Compute/virtualMachines/extensions",
 					"location": "[parameters('DSC').Location]",
@@ -65,7 +65,7 @@
 					"properties": {
 						"publisher": "Microsoft.Powershell",
 						"type": "DSC",
-						"typeHandlerVersion": "2.20",
+						"typeHandlerVersion": "2.19",
 						"autoUpgradeMinorVersion": true,
 						"settings": {
 							"configuration": {
