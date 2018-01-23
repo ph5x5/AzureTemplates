@@ -142,7 +142,6 @@
 		}
 	},
 	"variables": {
-		"VMStorageAccountContainerName": "vhds",
 		"VirtualNetwork": {
 			"Name": "[concat(parameters('envPrefix'), 'VNet')]",
 			"Location": "[parameters('envLocation')]",
