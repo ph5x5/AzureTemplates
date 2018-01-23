@@ -69,7 +69,7 @@
 						"autoUpgradeMinorVersion": true,
 						"settings": {
 							"ModulesUrl": "[concat(parameters('DSC')._artifactsLocation, '/', parameters('DSC').dscExtensionArchiveFolder, '/', parameters('DSC').dscExtensionArchiveFileName)]",
-							"ConfigurationFunction": "[concat(parameters('DSC').dscExtensionScriptName, '\\', parameters('DSC').dscExtensionFunction)]"
+							"ConfigurationFunction": "[concat(parameters('DSC').dscExtensionScriptName, '\\', parameters('DSC').dscExtensionFunction)]",
 							"properties": {
 								"machineName": "[parameters('VirtualMachine').Name]"
 							}
