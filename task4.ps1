@@ -45,9 +45,9 @@ $_artifactsLocation = "https://csbf904e53bc8b7x4111x93b.file.core.windows.net"
 $_artifactsLocationSasToken = "?sv=2017-04-17&ss=f&srt=sco&sp=r&se=2018-02-17T22:26:09Z&st=2018-01-21T14:26:09Z&spr=https,http&sig=ffY3b9%2BUV9h7gxyKDU8v%2B9o43WZXMU2wWwEREn8DMjU%3D"
 $dscExtensionArchiveFolder = "cs-andrey-murzich-epam-com-1003bffda4a875ae"
 
-$dscExtensionArchiveFileName = "iis.zip"
 $dscExtensionScriptName = "iis.ps1"
-$dscExtensionFunction = "Configuration IIS"
+$dscExtensionArchiveFileName = "$dscExtensionScriptName.zip"
+$dscExtensionFunction = "InstallIIS"
 $dscIISBindPort = "8080"
 
 # Account Login
@@ -90,8 +90,3 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix `
                                    -vmTemplateLink $vmTemplateLink `
                                    -iisTemplateLink $iisTemplateLink `
                                    -Force -Verbose
-
-$dscSettings = "{'url': '$_artifactsLocation/$dscExtensionArchiveFolder/$dscExtensionArchiveFileName', 'script': '$dscExtensionScriptName', 'function': '$dscExtensionFunction', 'protectedSettings': {'configurationUrlSasToken': '$_artifactsLocationSasToken'}, 'Properties': {'bindPort': '$dscIISBindPort', 'machineName': '$envPrefix-vm'}}"
-
-Set-AzureRmVMExtension -ExtensionName "DSC" -ResourceGroupName $envPrefix -VMName "$envPrefix-vm" -Publisher "Microsoft.Powershell" `
-                       -ExtensionType "DSC" -TypeHandlerVersion 2.27 -SettingString $dscSettings -Location $envLocation
