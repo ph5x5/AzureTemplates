@@ -1,7 +1,4 @@
-Configuration IIS
-{
-	WindowsFeature IIS {
-		Ensure = "Present"
-		Name = "Web-Server"
-	}
+WindowsFeature IIS {
+	Ensure = "Present"
+	Name = "Web-Server"
 }
