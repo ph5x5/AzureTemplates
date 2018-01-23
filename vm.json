@@ -66,12 +66,10 @@
 						"publisher": "Microsoft.Powershell",
 						"type": "DSC",
 						"typeHandlerVersion": "2.19",
-						"autoUpgradeMinorVersion": false,
+						"autoUpgradeMinorVersion": true,
 						"settings": {
-							"configuration": {
-								"ModulesUrl": "[concat(parameters('DSC')._artifactsLocation, '/', parameters('DSC').dscExtensionArchiveFolder, '/', parameters('DSC').dscExtensionArchiveFileName)]",
-								"ConfigurationFunction": "[concat(parameters('DSC').dscExtensionScriptName, '\\', parameters('DSC').dscExtensionFunction)]"
-							},
+							"ModulesUrl": "[concat(parameters('DSC')._artifactsLocation, '/', parameters('DSC').dscExtensionArchiveFolder, '/', parameters('DSC').dscExtensionArchiveFileName)]",
+							"ConfigurationFunction": "[concat(parameters('DSC').dscExtensionScriptName, '\\', parameters('DSC').dscExtensionFunction)]"
 							"properties": {
 								"machineName": "[parameters('VirtualMachine').Name]"
 							}
