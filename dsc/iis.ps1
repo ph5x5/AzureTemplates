@@ -21,7 +21,7 @@ Configuration InstallIIS
 		}
 		xWebsite DefaultSite {
 			Ensure = "Present"
-			Name = "DefaultSite"
+			Name = "Default Web Site"
 			State = "Started"
 			PhysicalPath = "C:\inetpub\wwwroot"
 			DependsOn = "[WindowsFeature]IIS"

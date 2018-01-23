@@ -72,7 +72,8 @@
 							"SasToken": "[parameters('DSC')._artifactsLocationSasToken]",
 							"ConfigurationFunction": "[concat(parameters('DSC').dscExtensionScriptName, '\\', parameters('DSC').dscExtensionFunction)]",
 							"properties": {
-								"machineName": "[parameters('VirtualMachine').Name]"
+								"machineName": "[parameters('VirtualMachine').Name]",
+								"bindPort": "[parameters('DSC').dscIISBindPort]"
 							}
 						}
 					}
