@@ -65,7 +65,7 @@
 					"properties": {
 						"publisher": "Microsoft.Powershell",
 						"type": "DSC",
-						"typeHandlerVersion": "2.27",
+						"typeHandlerVersion": "2.20",
 						"autoUpgradeMinorVersion": true,
 						"settings": {
 							"configuration": {
