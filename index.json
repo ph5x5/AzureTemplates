@@ -172,7 +172,7 @@
 			"InterfaceName": "[concat(parameters('envPrefix'),'-vm-if')]"
 		},
 		"DSC": {
-			"Name": "[concat('Microsoft.Compute/virtualMachines/', parameters('envPrefix'), '-vm/extensions', '/', 'dsc-iis')]",
+			"Name": "[concat(parameters('envPrefix'), '-vm', '/Microsoft.Powershell.DSC')]",
 			"Location": "[parameters('envLocation')]",
 			"_artifactsLocation": "[parameters('_artifactsLocation')]",
 			"_artifactsLocationSasToken": "[parameters('_artifactsLocationSasToken')]",
