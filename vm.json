@@ -69,14 +69,12 @@
 						"autoUpgradeMinorVersion": true,
 						"settings": {
 							"ModulesUrl": "[concat(parameters('DSC')._artifactsLocation, '/', parameters('DSC').dscExtensionArchiveFolder, '/', parameters('DSC').dscExtensionArchiveFileName)]",
+							"SasToken": "[parameters('DSC')._artifactsLocationSasToken]",
 							"ConfigurationFunction": "[concat(parameters('DSC').dscExtensionScriptName, '\\', parameters('DSC').dscExtensionFunction)]",
 							"properties": {
 								"machineName": "[parameters('VirtualMachine').Name]"
 							}
 						},
-						"protectedSettings": {
-							"configurationUrlSasToken": "[parameters('DSC')._artifactsLocationSasToken]"
-						}
 					}
 				}
 			]
