@@ -142,14 +142,6 @@
 		}
 	},
 	"variables": {
-		"StorageAccount": {
-			"Name": "[concat(parameters('envPrefix'),'storage')]",
-			"Sku": "[parameters('storageSku')]",
-			"Kind": "[parameters('storageKind')]",
-			"Location": "[parameters('envLocation')]",
-			"storageAccessTier": "[parameters('storageAccessTier')]",
-			"storageSupportHttpsTrafficOnly": "[parameters('storageSupportHttpsTrafficOnly')]"
-		},
 		"VMStorageAccountContainerName": "vhds",
 		"VirtualNetwork": {
 			"Name": "[concat(parameters('envPrefix'), 'VNet')]",
@@ -193,23 +185,6 @@
 		}
 	},
 	"resources": [
-		{
-			"apiVersion": "2017-05-10",
-			"name": "storageTemplate",
-			"type": "Microsoft.Resources/deployments",
-			"properties": {
-				"mode": "Incremental",
-				"templateLink": {
-					"uri": "[parameters('storageTemplateLink')]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"StorageAccount": {
-						"value": "[variables('StorageAccount')]"
-					}
-				}
-			}
-		},
 		{
 			"apiVersion": "2017-05-10",
 			"name": "vnetTemplate",
