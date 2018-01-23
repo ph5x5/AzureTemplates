@@ -54,7 +54,7 @@ $dscIISBindPort = "8080"
 #Login-AzureRmAccount
 
 # Resource Group Deployment
-New-AzureRmResourceGroup -Name $envPrefix -Location $envLocation
+New-AzureRmResourceGroup -Name $envPrefix -Location $envLocation -Force
 New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix `
                                    -TemplateFile $TemplateFile `
                                    -envPrefix $envPrefix `

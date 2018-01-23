@@ -8,7 +8,7 @@ Configuration InstallIIS
 	Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 	Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 	Install-Module -Name xWebAdministration,xNetworking
-	Import-Module -Name PSDesiredStateConfiguration,xWebAdministration,xNetworking
+	Import-DSCResource -ModuleName PSDesiredStateConfiguration,xWebAdministration,xNetworking
 	
 	Node $machineName {
 		WindowsFeature IIS {
@@ -34,14 +34,14 @@ Configuration InstallIIS
 		
 		xFirewall Firewall
 		{
-			Name = "IIS 8080 Rule"
-			DisplayName = "IIS 8080 Rule"
+			Name = "IIS $bindPort Rule"
+			DisplayName = "IIS $bindPort Rule"
 			Ensure = "Present"
 			Profile = ("Domain", "Private", "Public")
 			Direction = "Inbound"
-			LocalPort = "8080"
+			LocalPort = "$bindPort"
 			Protocol = "TCP"
-			Description "IIS 8080 Rule"
+			Description = "IIS $bindPort Rule"
 		}
 	}
 }
