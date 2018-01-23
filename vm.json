@@ -74,7 +74,6 @@
 								"function": "[parameters('DSC').dscExtensionFunction]"
 							},
 							"properties": {
-								"bindPort": "[parameters('DSC').dscIISBindPort]",
 								"machineName": "[parameters('VirtualMachine').Name]"
 							}
 						},
