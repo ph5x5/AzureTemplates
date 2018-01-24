@@ -38,7 +38,7 @@ Configuration InstallIIS
 			Direction = "Inbound"
 			LocalPort = $bindPort
 			Protocol = "TCP"
-			Description "IIS $bindPort Rule"
+			Description = "IIS $bindPort Rule"
 		}
 	}
 }
