@@ -51,7 +51,7 @@ $dscExtensionFunction = "InstallIIS"
 $dscIISBindPort = "8080"
 
 # Account Login
-#Login-AzureRmAccount
+Login-AzureRmAccount
 
 # Resource Group Deployment
 New-AzureRmResourceGroup -Name $envPrefix -Location $envLocation -Force
