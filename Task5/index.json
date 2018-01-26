@@ -1,0 +1,102 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"envPrefix": {
+			"type": "string"
+		},
+		"envLocation": {
+			"type": "string",
+			"defaultValue": "West Europe",
+			"allowedValues": [
+				"North Europe",
+				"West Europe"
+			]
+		},
+		"credTemplateLink": {
+			"type": "string"
+		},
+		"runbookTemplateLink": {
+			"type": "string"
+		},
+		"jobTemplateLink": {
+			"type": "string"
+		}
+	},
+	"variables": {
+		"Credentials": {
+			"Name": "[concat(parameters('envPrefix'), '-cred')]",
+			"Location": "[parameters('envLocation')]"
+
+		},
+		"Runbook": {
+			"Name": "[concat(parameters('envPrefix'),'-runbook')]",
+			"Location": "[parameters('envLocation')]"
+
+		},
+		"Job": {
+			"Name": "[concat(parameters('envPrefix'), '-job')]",
+			"Location": "[parameters('envLocation')]"
+		}
+	},
+	"resources": [
+		{
+			"apiVersion": "2017-05-10",
+			"name": "credTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('credTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"Credentials": {
+						"value": "[variables('Credentials')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "runbookTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'credTemplate')]"
+			],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('runbookTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"Runbook": {
+						"value": "[variables('Runbook')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "jobTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'runbookTemplate')]"
+			],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('jobTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"Job": {
+						"value": "[variables('Job')]"
+					}
+				}
+			}
+		}
+	],
+	"outputs": { }
+}
