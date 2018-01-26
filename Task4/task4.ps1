@@ -4,12 +4,12 @@
 
 # Global configuration
 $envLocation = "West Europe"
-$TemplateFile = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/index.json"
+$TemplateFile = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task4/index.json"
 $envPrefix = "learning4"
-$storageTemplateLink = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/storage.json"
-$vnetTemplateLink = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/vnet.json"
-$vmTemplateLink = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/vm.json"
-$iisTemplateLink = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/dsc.json"
+$storageTemplateLink = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task3/storage.json"
+$vnetTemplateLink = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task4/vnet.json"
+$vmTemplateLink = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task4/vm.json"
+$iisTemplateLink = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task4/dsc.json"
 
 # Storage Configuration
 $storageSku = "STANDARD_LRS"
