@@ -1,0 +1,25 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"Automation": {
+			"type": "object"
+		},
+		"Credentials" : {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[concat(parameters('Automation').Name, '/', parameters('Credentials').Name)]",
+			"type": "Microsoft.Automation/automationAccounts/credentials",
+			"apiVersion": "2015-10-31",
+			"properties": {
+				"userName": "[parameters('Credentials').UserName]",
+				"password": "[parameters('Credentials').Password]"
+			}
+		}
+	],
+	"outputs": { }
+}

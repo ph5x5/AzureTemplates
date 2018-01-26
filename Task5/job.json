@@ -1,0 +1,27 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"Automation": {
+			"type": "object"
+		},
+		"Job" : {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[concat(parameters('Automation').Name, '/', parameters('Job').Name)]",
+			"type": "Microsoft.Automation/automationAccounts/jobs",
+			"apiVersion": "2015-10-31",
+			"location": "[parameters('Job').Location]",
+			"properties": {
+				"runbook": {
+					"name": "[concat(parameters('Automation').Name, '/', parameters('Job').RunbookName)]"
+				}
+			}
+		}
+	],
+	"outputs": { }
+}

@@ -1,0 +1,38 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"Automation": {
+			"type": "object"
+		},
+		"Runbook" : {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[concat(parameters('Automation').Name, '/', parameters('Runbook').Name)]",
+			"type": "Microsoft.Automation/automationAccounts/runbooks",
+			"apiVersion": "2015-10-31",
+			"location": "[parameters('Runbook').Location]",
+			"properties": {
+				"logVerbose": "[parameters('Runbook').LogVerbose]",
+				"logProgress": "[parameters('Runbook').LogProgress]",
+				"runbookType": "[parameters('Runbook').RunbookType]",
+				"draft": {
+					"inEdit": "[parameters('Runbook').InEdit]",
+					"draftContentLink": {
+						"uri": "[parameters('Runbook').RunbookURI]"
+					},
+					"parameters": {
+						"ResourceGroupName": "[parameters('Runbook').Location]",
+						"SubscriptionId": "[parameters('Runbook').SubscriptionId]",
+						"VMName": "[concat(parameters('Runbook').SubscriptionId, '-vm')]"
+					}
+				}
+			}
+		}
+	],
+	"outputs": { }
+}
