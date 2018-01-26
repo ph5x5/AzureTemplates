@@ -2,8 +2,8 @@
 	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
-		"credUserName": "user1",
-		"credPassword": "userpass",
+		"credUserName": "andrey_murzich1",
+		"credPassword": "andrey_userpass",
 		"runbookLogVerbose": true,
 		"runbookLogProgress": true,
 		"runbookType": "PowerShellWorkflow",
