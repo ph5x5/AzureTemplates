@@ -20,6 +20,9 @@
 		"varTemplateLink": {
 			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task5/variables.json"
 		},
+		"conTemplateLink": {
+			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task5/connection.json"
+		},
 		"credUserName": {
 			"value": "andreymurzich"
 		},
@@ -43,6 +46,12 @@
 		},
 		"subscriptionId": {
 			"value": "Бесплатная пробная версия"
+		},
+		"connectionName": {
+			"value": "AzureRunAsConnection"
+		},
+		"connectionType": {
+			"value": "AzureServicePrincipal"
 		}
 	}
 }
