@@ -30,7 +30,7 @@
 			"value": true
 		},
 		"runbookType": {
-			"value": "PowerShellWorkflow"
+			"value": "Graphical"
 		},
 		"runbookInEdit": {
 			"value": false
