@@ -21,7 +21,7 @@
 			"value": false
 		},
 		"runbookURI": {
-			"value", "[concat(parameters('storagePath'), '/learning4-stopVM.graphrunbook', parameters('sasToken')]"
+			"value": "[concat(parameters('storagePath'), '/learning4-stopVM.graphrunbook', parameters('sasToken')]"
 		},
 		"subscriptionId": {
 			"value": "Бесплатная пробная версия"
