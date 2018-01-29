@@ -30,7 +30,7 @@
 			"value": true
 		},
 		"runbookType": {
-			"value": "Graphical"
+			"value": "Graph"
 		},
 		"runbookInEdit": {
 			"value": false
