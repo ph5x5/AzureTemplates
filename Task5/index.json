@@ -27,6 +27,30 @@
 		},
 		"jobTemplateLink": {
 			"type": "string"
+		},
+		"credUserName": {
+			"type": "string"
+		},
+		"credPassword": {
+			"type": "string"
+		},
+		"runbookLogVerbose": {
+			"type": "bool"
+		},
+		"runbookLogProgress": {
+			"type": "bool"
+		},
+		"runbookType": {
+			"type": "string"
+		},
+		"runbookInEdit": {
+			"type": "bool"
+		},
+		"runbookURI": {
+			"type": "string"
+		},
+		"subscriptionId": {
+			"type": "string"
 		}
 	},
 	"variables": {
