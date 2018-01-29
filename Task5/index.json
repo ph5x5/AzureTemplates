@@ -86,79 +86,13 @@
 			"location": "[variables('Automation').Location]",
 			"apiVersion": "2015-10-31",
 			"properties": {
+				"sku": {
+					"name": "Free",
+					"capacity": 1
+				}
 			},
 			"resources": [
-				{
-					"apiVersion": "2017-05-10",
-					"name": "credTemplate",
-					"type": "Microsoft.Resources/deployments",
-					"dependsOn": [
-						"[resourceId('Microsoft.Automation/automationAccounts/', variables('Automation').Name)]"
-					],
-					"properties": {
-						"mode": "Incremental",
-						"templateLink": {
-							"uri": "[parameters('credTemplateLink')]",
-							"contentVersion": "1.0.0.0"
-						},
-						"parameters": {
-							"Automation": {
-								"value": "[variables('Automation')]"
-							},
-							"Credentials": {
-								"value": "[variables('Credentials')]"
-							}
-						}
-					}
-				},
-				{
-					"apiVersion": "2017-05-10",
-					"name": "runbookTemplate",
-					"type": "Microsoft.Resources/deployments",
-					"dependsOn": [
-						"[resourceId('Microsoft.Automation/automationAccounts/', variables('Automation').Name)]",
-						"[resourceId('Microsoft.Resources/deployments/', 'credTemplate')]"
-					],
-					"properties": {
-						"mode": "Incremental",
-						"templateLink": {
-							"uri": "[parameters('runbookTemplateLink')]",
-							"contentVersion": "1.0.0.0"
-						},
-						"parameters": {
-							"Automation": {
-								"value": "[variables('Automation')]"
-							},
-							"Runbook": {
-								"value": "[variables('Runbook')]"
-							}
-						}
-					}
-				},
-				{
-					"apiVersion": "2017-05-10",
-					"name": "jobTemplate",
-					"type": "Microsoft.Resources/deployments",
-					"dependsOn": [
-						"[resourceId('Microsoft.Automation/automationAccounts/', variables('Automation').Name)]",
-						"[resourceId('Microsoft.Resources/deployments/', 'runbookTemplate')]"
-					],
-					"properties": {
-						"mode": "Incremental",
-						"templateLink": {
-							"uri": "[parameters('jobTemplateLink')]",
-							"contentVersion": "1.0.0.0"
-						},
-						"parameters": {
-							"Automation": {
-								"value": "[variables('Automation')]"
-							},
-							"Job": {
-								"value": "[variables('Job')]"
-							}
-						}
-					}
-				}
+			
 			]			
 		}
 	],
