@@ -17,18 +17,18 @@
 			"apiVersion": "2015-10-31",
 			"location": "[parameters('Runbook').Location]",
 			"properties": {
-				"logVerbose": "[parameters('Runbook').LogVerbose]",
-				"logProgress": "[parameters('Runbook').LogProgress]",
-				"runbookType": "[parameters('Runbook').RunbookType]",
+				"logVerbose": "[parameters('runbookLogVerbose')]",
+				"logProgress": "[parameters('runbookLogProgress')]",
+				"runbookType": "[parameters('runbookType')]",
 				"draft": {
-					"inEdit": "[parameters('Runbook').InEdit]",
+					"inEdit": "[parameters('runbookInEdit')]",
 					"draftContentLink": {
-						"uri": "[parameters('Runbook').RunbookURI]"
+						"uri": "[parameters('runbookURI')]"
 					},
 					"parameters": {
 						"ResourceGroupName": "[parameters('Runbook').Location]",
-						"SubscriptionId": "[parameters('Runbook').SubscriptionId]",
-						"VMName": "[concat(parameters('Runbook').SubscriptionId, '-vm')]"
+						"SubscriptionId": "[parameters('runbookSubscriptionId')]",
+						"VMName": "[concat(parameters('runbookSubscriptionId'), '-vm')]"
 					}
 				}
 			}

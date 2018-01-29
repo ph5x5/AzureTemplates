@@ -35,19 +35,11 @@
 			"Location": "[parameters('envLocation')]"
 		},
 		"Credentials": {
-			"Name": "[concat(parameters('envPrefix'), '-cred')]",
-			"UserName": "[parameters('credUserName')]",
-			"Password": "[parameters('credPassword')]"
+			"Name": "[concat(parameters('envPrefix'), '-cred')]"
 		},
 		"Runbook": {
 			"Name": "[concat(parameters('envPrefix'),'-runbook')]",
-			"Location": "[parameters('envLocation')]",
-			"LogVerbose": "[parameters('runbookLogVerbose')]",
-			"LogProgress": "[parameters('runbookLogProgress')]",
-			"RunbookType": "[parameters('runbookType')]",
-			"InEdit": "[parameters('runbookInEdit')]",
-			"RunbookURI": "[parameters('runbookURI')]",
-			"SubscriptionId": "[parameters('subscriptionId')]"
+			"Location": "[parameters('envLocation')]"
 		},
 		"Job": {
 			"Name": "[concat(parameters('envPrefix'), '-job')]",
