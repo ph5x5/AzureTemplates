@@ -54,6 +54,11 @@
 			"location": "[variables('Automation').Location]",
 			"apiVersion": "2015-10-31",
 			"properties": {
+				"sku": {
+					"name": "Free",
+					"family": null,
+					"capacity": 1
+				}
 			},
 			"resources": [
 				{
