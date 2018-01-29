@@ -12,7 +12,7 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "[concat(parameters('Automation').Name, '/ResourceGroupName']",
+			"name": "[concat(parameters('Automation').Name, '/ResourceGroupName')]",
 			"type": "Microsoft.Automation/automationAccounts/variables",
 			"apiVersion": "2015-10-31",
 			"properties": {
@@ -21,7 +21,7 @@
 			}
 		},
 		{
-			"name": "[concat(parameters('Automation').Name, '/SubscriptionId']",
+			"name": "[concat(parameters('Automation').Name, '/SubscriptionId')]",
 			"type": "Microsoft.Automation/automationAccounts/variables",
 			"apiVersion": "2015-10-31",
 			"properties": {
@@ -30,7 +30,7 @@
 			}
 		},
 		{
-			"name": "[concat(parameters('Automation').Name, '/VMName']",
+			"name": "[concat(parameters('Automation').Name, '/VMName')]",
 			"type": "Microsoft.Automation/automationAccounts/variables",
 			"apiVersion": "2015-10-31",
 			"properties": {
