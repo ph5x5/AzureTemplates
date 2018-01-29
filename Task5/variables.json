@@ -16,7 +16,7 @@
 			"type": "Microsoft.Automation/automationAccounts/variables",
 			"apiVersion": "2015-10-31",
 			"properties": {
-				"value": "learning4",
+				"value": "[parameters('Variables').ResourceGroupName]",
 				"isEncrypted": false
 			}
 		},
@@ -25,7 +25,7 @@
 			"type": "Microsoft.Automation/automationAccounts/variables",
 			"apiVersion": "2015-10-31",
 			"properties": {
-				"value": "Free Trial Version",
+				"value": "[parameters('Variables').SubscriptionId]",
 				"isEncrypted": false
 			}
 		},
@@ -34,7 +34,7 @@
 			"type": "Microsoft.Automation/automationAccounts/variables",
 			"apiVersion": "2015-10-31",
 			"properties": {
-				"value": "learning4-vm",
+				"value": "[concat(parameters('Variables').ResourceGroupName, '-vm')]",
 				"isEncrypted": false
 			}
 		}
