@@ -21,7 +21,7 @@ $sasToken = "?sv=2017-04-17&ss=f&srt=sco&sp=r&se=2018-02-17T22:26:09Z&st=2018-01
 New-AzureRmResourceGroup -Name $envPrefix -Location $envLocation -Force
 New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix `
                                    -TemplateFile $templateFile `
-                                   -TemplateParameterFile $templateParameterFile `
+                                   -TemplateParameterUri $templateParameterFile `
                                    -envPrefix $envPrefix `
                                    -envLocation $envLocation `
                                    -storagePath $storagePath `
