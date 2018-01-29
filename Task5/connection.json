@@ -18,7 +18,8 @@
 			"properties": {
 				"connectionType": {
 					"name": "[parameters('Connection').Type]"
-				}
+				},
+				"fieldDefinitionValues": {}
 			}
 		}
 	],
