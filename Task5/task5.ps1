@@ -14,6 +14,7 @@ $envLocation = "West Europe"
 # Resource Group Deployment
 New-AzureRmResourceGroup -Name $envPrefix -Location $envLocation -Force
 New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix `
+                                   -Name Task5 `
                                    -TemplateFile $templateFile `
                                    -TemplateParameterUri $templateParameterUri `
                                    -Force -Verbose

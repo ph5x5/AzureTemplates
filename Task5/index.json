@@ -79,7 +79,7 @@
 			"name": "[variables('Automation').Name]",
 			"type": "Microsoft.Automation/automationAccounts",
 			"location": "[variables('Automation').Location]",
-			"apiVersion": "2015-10-31",
+			"apiVersion": "2015-01-01-preview",
 			"properties": {
 				"sku": {
 					"name": "Free"
