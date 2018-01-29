@@ -60,6 +60,9 @@
 					"apiVersion": "2017-05-10",
 					"name": "credTemplate",
 					"type": "Microsoft.Resources/deployments",
+					"dependsOn": [
+						"[resourceId(concat('Microsoft.Automation/automationAccounts/', variables('Automation').Name))]"
+					],
 					"properties": {
 						"mode": "Incremental",
 						"templateLink": {
@@ -81,6 +84,7 @@
 					"name": "runbookTemplate",
 					"type": "Microsoft.Resources/deployments",
 					"dependsOn": [
+						"[resourceId(concat('Microsoft.Automation/automationAccounts/', variables('Automation').Name))]",
 						"[resourceId('Microsoft.Resources/deployments', 'credTemplate')]"
 					],
 					"properties": {
@@ -104,6 +108,7 @@
 					"name": "jobTemplate",
 					"type": "Microsoft.Resources/deployments",
 					"dependsOn": [
+						"[resourceId(concat('Microsoft.Automation/automationAccounts/', variables('Automation').Name))]",
 						"[resourceId('Microsoft.Resources/deployments', 'runbookTemplate')]"
 					],
 					"properties": {
