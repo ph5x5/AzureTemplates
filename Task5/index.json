@@ -56,7 +56,6 @@
 			"properties": {
 				"sku": {
 					"name": "Free",
-					"family": null,
 					"capacity": 1
 				}
 			},
