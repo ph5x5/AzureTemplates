@@ -17,7 +17,7 @@
 			"apiVersion": "2015-10-31",
 			"properties": {
 				"type": "string",
-				"value": "\"[parameters('Variables').ResourceGroupName]\"",
+				"value": "\"learning4\"",
 				"isEncrypted": false
 			}
 		},
@@ -27,7 +27,7 @@
 			"apiVersion": "2015-10-31",
 			"properties": {
 				"type": "string",
-				"value": "\"[parameters('Variables').SubscriptionId]\"",
+				"value": "\"Бесплатная пробная версия\"",
 				"isEncrypted": false
 			}
 		},
@@ -37,7 +37,7 @@
 			"apiVersion": "2015-10-31",
 			"properties": {
 				"type": "string",
-				"value": "\"[concat(parameters('Variables').ResourceGroupName, '-vm')]\"",
+				"value": "\"learning4-vm\"",
 				"isEncrypted": false
 			}
 		}

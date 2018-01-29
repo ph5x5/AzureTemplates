@@ -9,7 +9,7 @@ $envPrefix = "learning4"
 $envLocation = "West Europe"
 
 # Account Login
-Login-AzureRmAccount
+#Login-AzureRmAccount
 
 # Resource Group Deployment
 New-AzureRmResourceGroup -Name $envPrefix -Location $envLocation -Force
