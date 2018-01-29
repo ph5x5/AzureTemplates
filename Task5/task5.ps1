@@ -26,7 +26,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix `
                                    -envLocation $envLocation `
                                    -storagePath $storagePath `
                                    -sasToken $sasToken `
-                                   -credentialsTemplateLink $credTemplateLink `
+                                   -credTemplateLink $credTemplateLink `
                                    -runbookTemplateLink $runbookTemplateLink `
                                    -jobTemplateLink $jobTemplateLink `
                                    -Force -Verbose
