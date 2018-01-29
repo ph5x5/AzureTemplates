@@ -197,7 +197,7 @@
 					"apiVersion": "2017-05-10",
 					"name": "varConnection",
 					"type": "Microsoft.Resources/deployments",
-					"dependsOn": ]
+					"dependsOn": [
 						"[resourceId('Microsoft.Automation/automationAccounts/', variables('Automation').Name)]"
 					],
 					"properties": {
