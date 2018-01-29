@@ -61,7 +61,7 @@
 					"name": "credTemplate",
 					"type": "Microsoft.Resources/deployments",
 					"dependsOn": [
-						"[resourceId(concat('Microsoft.Automation/automationAccounts/', variables('Automation').Name))]"
+						"[resourceId('Microsoft.Automation/automationAccounts/', variables('Automation').Name)]"
 					],
 					"properties": {
 						"mode": "Incremental",
@@ -84,8 +84,8 @@
 					"name": "runbookTemplate",
 					"type": "Microsoft.Resources/deployments",
 					"dependsOn": [
-						"[resourceId(concat('Microsoft.Automation/automationAccounts/', variables('Automation').Name))]",
-						"[resourceId('Microsoft.Resources/deployments', 'credTemplate')]"
+						"[resourceId('Microsoft.Automation/automationAccounts/', variables('Automation').Name)]",
+						"[resourceId('Microsoft.Resources/deployments/', 'credTemplate')]"
 					],
 					"properties": {
 						"mode": "Incremental",
@@ -108,8 +108,8 @@
 					"name": "jobTemplate",
 					"type": "Microsoft.Resources/deployments",
 					"dependsOn": [
-						"[resourceId(concat('Microsoft.Automation/automationAccounts/', variables('Automation').Name))]",
-						"[resourceId('Microsoft.Resources/deployments', 'runbookTemplate')]"
+						"[resourceId('Microsoft.Automation/automationAccounts/', variables('Automation').Name)]",
+						"[resourceId('Microsoft.Resources/deployments/', 'runbookTemplate')]"
 					],
 					"properties": {
 						"mode": "Incremental",
