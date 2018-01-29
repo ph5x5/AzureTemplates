@@ -17,7 +17,7 @@
 			"apiVersion": "2015-10-31",
 			"properties": {
 				"type": "string",
-				"value": "[parameters('Variables').ResourceGroupName]",
+				"value": "\"[parameters('Variables').ResourceGroupName]\"",
 				"isEncrypted": false
 			}
 		},
@@ -27,7 +27,7 @@
 			"apiVersion": "2015-10-31",
 			"properties": {
 				"type": "string",
-				"value": "[parameters('Variables').SubscriptionId]",
+				"value": "\"[parameters('Variables').SubscriptionId]\"",
 				"isEncrypted": false
 			}
 		},
@@ -37,7 +37,7 @@
 			"apiVersion": "2015-10-31",
 			"properties": {
 				"type": "string",
-				"value": "[concat(parameters('Variables').ResourceGroupName, '-vm')]",
+				"value": "\"[concat(parameters('Variables').ResourceGroupName, '-vm')]\"",
 				"isEncrypted": false
 			}
 		}
