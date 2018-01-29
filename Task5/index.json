@@ -17,6 +17,9 @@
 		"jobTemplateLink": {
 			"type": "string"
 		},
+		"varTemplateLink": {
+			"type": "string"
+		},
 		"credUserName": {
 			"type": "string"
 		},
@@ -59,13 +62,16 @@
 			"LogProgress": "[parameters('runbookLogProgress')]",
 			"RunbookType": "[parameters('runbookType')]",
 			"InEdit": "[parameters('runbookInEdit')]",
-			"RunbookURI": "[parameters('runbookURI')]",
-			"SubscriptionId": "[parameters('subscriptionId')]"
+			"RunbookURI": "[parameters('runbookURI')]"
 		},
 		"Job": {
 			"Name": "[concat(parameters('envPrefix'), '-job')]",
 			"Location": "[parameters('envLocation')]",
 			"RunbookName": "[concat(parameters('envPrefix'),'-runbook')]"
+		},
+		"Variables": {
+			"Location": "[parameters('envLocation')]",
+			"SubscriptionId": "[parameters('subscriptionId')]"
 		}
 	},
 	"resources": [
@@ -73,7 +79,7 @@
 			"name": "[variables('Automation').Name]",
 			"type": "Microsoft.Automation/automationAccounts",
 			"location": "[variables('Automation').Location]",
-			"apiVersion": "2015-01-01-preview",
+			"apiVersion": "2015-10-31",
 			"properties": {
 				"sku": {
 					"name": "Free"
@@ -147,6 +153,28 @@
 							},
 							"Job": {
 								"value": "[variables('Job')]"
+							}
+						}
+					}
+				},
+				{
+					"name": "varTemplate",
+					"type": "Microsoft.Resources/deployments",
+					"dependsOn": [
+						"[resourceId('Microsoft.Automation/automationAccounts/', variables('Automation').Name)]"
+					],
+					"properties": {
+						"mode": "Incremental",
+						"templateLink": {
+							"uri": "[parameters('varTemplateLink')]",
+							"contentVersion": "1.0.0.0"
+						},
+						"parameters": {
+							"Automation": {
+								"value": "[variables('Automation')]"
+							},
+							"Variables": {
+								"value": "[variables('Variables')]"
 							}
 						}
 					}

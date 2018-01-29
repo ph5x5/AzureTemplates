@@ -17,6 +17,9 @@
 		"jobTemplateLink": {
 			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task5/job.json"
 		},
+		"varTemplateLink": {
+			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task5/variables.json"
+		},
 		"credUserName": {
 			"value": "andreymurzich"
 		},

@@ -1,0 +1,43 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"Automation": {
+			"type": "object"
+		},
+		"Variables" : {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[concat(parameters('Automation').Name, '/ResourceGroupName']",
+			"type": "Microsoft.Automation/automationAccounts/variables",
+			"apiVersion": "2015-10-31",
+			"properties": {
+				"value": "[parameters('Variables').Location]",
+				"isEncrypted": false
+			}
+		},
+		{
+			"name": "[concat(parameters('Automation').Name, '/SubscriptionId']",
+			"type": "Microsoft.Automation/automationAccounts/variables",
+			"apiVersion": "2015-10-31",
+			"properties": {
+				"value": "[parameters('Variables').SubscriptionId]",
+				"isEncrypted": false
+			}
+		},
+		{
+			"name": "[concat(parameters('Automation').Name, '/VMName']",
+			"type": "Microsoft.Automation/automationAccounts/variables",
+			"apiVersion": "2015-10-31",
+			"properties": {
+				"value": "[concat(parameters('Variables').Location, '-vm')]",
+				"isEncrypted": false
+			}
+		}
+	],
+	"outputs": { }
+}

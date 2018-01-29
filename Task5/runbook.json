@@ -24,11 +24,6 @@
 					"inEdit": "[parameters('Runbook').InEdit]",
 					"draftContentLink": {
 						"uri": "[parameters('Runbook').RunbookURI]"
-					},
-					"parameters": {
-						"ResourceGroupName": "[parameters('Runbook').Location]",
-						"SubscriptionId": "[parameters('Runbook').SubscriptionId]",
-						"VMName": "[concat(parameters('Runbook').SubscriptionId, '-vm')]"
 					}
 				}
 			}
