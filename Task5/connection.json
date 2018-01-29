@@ -11,12 +11,14 @@
 	},
 	"variables": { },
 	"resources": [
-		"apiVersion": "2015-10-31",
-		"name": "[parameters('Connection').Name]",
-		"type": "Microsoft.Automation/automationAccounts/connections",
-		"properties": {
-			"connectionType": {
-				"name": "[parameters('Connection').Type]"
+		{
+			"apiVersion": "2015-10-31",
+			"name": "[parameters('Connection').Name]",
+			"type": "Microsoft.Automation/automationAccounts/connections",
+			"properties": {
+				"connectionType": {
+					"name": "[parameters('Connection').Type]"
+				}
 			}
 		}
 	],
