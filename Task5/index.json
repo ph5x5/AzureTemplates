@@ -30,16 +30,16 @@
 			"type": "string"
 		},
 		"runbookLogVerbose": {
-			"type": "string"
+			"type": "bool"
 		},
 		"runbookLogProgress": {
-			"type": "string"
+			"type": "bool"
 		},
 		"runbookType": {
 			"type": "string"
 		},
 		"runbookInEdit": {
-			"type": "string"
+			"type": "bool"
 		},
 		"runbookURI": {
 			"type": "string"
