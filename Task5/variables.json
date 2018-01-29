@@ -16,7 +16,7 @@
 			"type": "Microsoft.Automation/automationAccounts/variables",
 			"apiVersion": "2015-10-31",
 			"properties": {
-				"value": "[parameters('Variables').Location]",
+				"value": "[parameters('Variables').ResourceGroupName]",
 				"isEncrypted": false
 			}
 		},
@@ -34,7 +34,7 @@
 			"type": "Microsoft.Automation/automationAccounts/variables",
 			"apiVersion": "2015-10-31",
 			"properties": {
-				"value": "[concat(parameters('Variables').Location, '-vm')]",
+				"value": "[concat(parameters('Variables').ResourceGroupName, '-vm')]",
 				"isEncrypted": false
 			}
 		}

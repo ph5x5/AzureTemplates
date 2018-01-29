@@ -70,7 +70,7 @@
 			"RunbookName": "[concat(parameters('envPrefix'),'-runbook')]"
 		},
 		"Variables": {
-			"Location": "[parameters('envLocation')]",
+			"ResourceGroupName": "[parameters('envPrefix')]",
 			"SubscriptionId": "[parameters('subscriptionId')]"
 		}
 	},
