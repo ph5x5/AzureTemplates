@@ -13,7 +13,7 @@
 	"resources": [
 		{
 			"apiVersion": "2015-10-31",
-			"name": "[parameters('Connection').Name]",
+			"name": "[concat(parameters('Automation').Name, '/', parameters('Connection').Name)]",
 			"type": "Microsoft.Automation/automationAccounts/connections",
 			"properties": {
 				"connectionType": {
