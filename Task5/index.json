@@ -8,12 +8,6 @@
 		"envLocation": {
 			"type": "string"
 		},
-		"storagePath": {
-			"type": "string"
-		},
-		"sasToken": {
-			"type": "string"
-		},
 		"credTemplateLink": {
 			"type": "string"
 		},
