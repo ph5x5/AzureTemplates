@@ -2,13 +2,29 @@
 	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
-		"credUserName": "andreymurzich",
-		"credPassword": "andrey_userpass",
-		"runbookLogVerbose": true,
-		"runbookLogProgress": true,
-		"runbookType": "PowerShellWorkflow",
-		"runbookInEdit": false,
-		"runbookURI": "[concat(parameters('storagePath'), '/learning4-stopVM.graphrunbook', parameters('sasToken')]",
-		"subscriptionId": "Бесплатная пробная версия"
+		"credUserName": {
+			"value": "andreymurzich"
+		},
+		"credPassword": {
+			"value": "andreyuserpass"
+		},
+		"runbookLogVerbose": {
+			"value": true
+		},
+		"runbookLogProgress": {
+			"value": true
+		},
+		"runbookType": {
+			"value": "PowerShellWorkflow"
+		},
+		"runbookInEdit": {
+			"value": false
+		},
+		"runbookURI": {
+			"value", "[concat(parameters('storagePath'), '/learning4-stopVM.graphrunbook', parameters('sasToken')]"
+		},
+		"subscriptionId": {
+			"value": "Бесплатная пробная версия"
+		}
 	}
 }
