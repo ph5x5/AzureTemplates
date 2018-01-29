@@ -46,12 +46,6 @@
 		},
 		"subscriptionId": {
 			"type": "string"
-		},
-		"connectionName": {
-			"type": "string"
-		},
-		"connectionType": {
-			"type": "string"
 		}
 	},
 	"variables": {
@@ -81,10 +75,6 @@
 		"Variables": {
 			"ResourceGroupName": "[parameters('envPrefix')]",
 			"SubscriptionId": "[parameters('subscriptionId')]"
-		},
-		"Connection": {
-			"Name": "[parameters('connectionName')]",
-			"Type": "[parameters('connectionType')]"
 		}
 	},
 	"resources": [
@@ -189,29 +179,6 @@
 							},
 							"Variables": {
 								"value": "[variables('Variables')]"
-							}
-						}
-					}
-				},
-				{
-					"apiVersion": "2017-05-10",
-					"name": "varConnection",
-					"type": "Microsoft.Resources/deployments",
-					"dependsOn": [
-						"[resourceId('Microsoft.Automation/automationAccounts/', variables('Automation').Name)]"
-					],
-					"properties": {
-						"mode": "Incremental",
-						"templateLink": {
-							"uri": "[parameters('conTemplateLink')]",
-							"contentVersion": "1.0.0.0"
-						},
-						"parameters": {
-							"Automation": {
-								"value": "[variables('Automation')]"
-							},
-							"Connection": {
-								"value": "[variables('Connection')]"
 							}
 						}
 					}
