@@ -2,48 +2,189 @@
 	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
-		"envLocation": {
+		"envPrefix": {
 			"type": "string"
 		},
-		"hostingPlanName": {
+		"tmLocation": {
 			"type": "string"
 		},
 		"skuName": {
 			"type": "string"
 		},
 		"skuCapacity": {
+			"type": "string"
+		},
+		"profileStatus": {
+			"type": "strig"
+		},
+		"routingMethod": {
+			"type": "string"
+		},
+		"relativeName": {
+			"type": "string"
+		},
+		"ttl": {
 			"type": "int"
 		},
-		"siteName": {
+		"protocol": {
+			"type": "string"
+		},
+		"port": {
+			"type": "int"
+		},
+		"path": {
+			"type": "string"
+		},
+		"endpointStatus": {
+			"type": "string"
+		},
+		"hpTemplateLink": {
+			"type": "string"
+		},
+		"wsTemplateLink": {
+			"type": "string"
+		},
+		"tmTemplateLink": {
+			"type": "string"
+		},
+		"epTemplateLink": {
 			"type": "string"
 		}
 	},
-	"variables": { },
+	"variables": {
+		"locations": [
+			"West Europe",
+			"North Europe"
+		],
+		"hostingPlan": {
+			"name": "[concat(parameters('envPrefix'), '-hp-', copyIndex())]",
+			"skuName": "[parameters('skuName')]",
+			"skuCapacity": "[parameters('skuCapacity')]"
+		},
+		"webSite": {
+			"name": "[concat(parameters('relativeName'), '-', copyIndex())]"
+		},
+		"trafficManager": {
+			"name": "[concat(parameters('envPrefix'), '-tm')]",
+			"location" : "[parameters('tmLocation')]",
+			"profileStatus": "[parameters('profileStatus')]",
+			"routingMethod": "[parameters('routingMethod')]",
+			"relativeName": "[parameters('relativeName')]",
+			"ttl": "[parameters('ttl')]",
+			"protocol": "[parameters('protocol')]",
+			"port": "[parameters('port')]",
+			"path": "[parameters('path')]"
+		},
+		"azureEndpoint": {
+			"name": "[concat(parameters('envPrefix'), '-tm/endpoint-', copyIndex())]"
+			"location": "[parameters('tmLocation')]",
+			"relativeName": "[parameters('relativeName')]",
+			"endpointStatus": "[parameters('endpointStatus')]"
+		}
+	},
 	"resources": [
 		{
-			"name": "[parameters('hostingPlanName')]",
-			"type": "Microsoft.Web/serverfarms",
-			"location": "[parameters('envLocation')]",
-			"apiVersion": "2016-03-01",
-			"sku": {
-				"name": "[parameters('skuName')]",
-				"capacity": "[parameters('skuCapacity')]"
-			},
+			"apiVersion": "2017-05-10",
+			"name": "hpTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [	],
 			"properties": {
-				"name": "[parameters('hostingPlanName')]"
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('hpTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"hostingPlan": {
+						"value": "[variables('hostingPlan')]"
+					},
+					"locations": {
+						"value": "[variables('locations')]"
+					}
+				}
 			},
+			"copy": {
+				"name": "hpLoop",
+				"count": "[length(variables('locations'))]"
+			}
 		},
 		{
-			"name": "[parameters('siteName')]",
-			"type": "Microsoft.Web/sites",
-			"location": "[parameters('envLocation')]",
-			"apiVersion": "2016-03-01",
+			"apiVersion": "2017-05-10",
+			"name": "wsTemplate",
+			"type": "Microsoft.Resources/deployments",
 			"dependsOn": [
-				"[parameters('hostingPlanName')]"
+				"[resourceId('Microsoft.Web/serverfarms/', concat(variables('hostingPlan').name, copyIndex()))]"
 			],
 			"properties": {
-				"name": "[parameters('siteName')]",
-				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('wsTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"hostingPlan": {
+						"value": "[variables('hostingPlan')]"
+					},
+					"webSite": {
+						"value": "[variables('webSite')]"
+					},
+					"locations": {
+						"value": "[variables('locations')]"
+					}
+				}
+			},
+			"copy": {
+				"name": "wsLoop",
+				"count": "[length(variables('locations'))]"
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "tmTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [	],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('wsTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"trafficManager": {
+						"value": "[variables('trafficManager')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "epTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [
+				"[resourceId('Microsoft.Web/sites/', concat(parameters('relativeName').name, '-', copyIndex()))]",
+				"[resourceId('Microsoft.Network/trafficManagerProfiles/', variables('trafficManager').name)]"
+			],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('epTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"trafficManager": {
+						"value": "[variables('trafficManager')]"
+					},
+					"azureEndpoint": {
+						"value": "[variables('azureEndpoint')]"
+					},
+					"locations": {
+						"value": "[variables('locations')]"
+					}
+				}
+			},
+			"copy": {
+				"name": "epLoop",
+				"count": "[length(variables('locations'))]"
 			}
 		}
 	],

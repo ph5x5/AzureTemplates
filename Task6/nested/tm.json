@@ -1,0 +1,32 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"trafficManager": {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[parameters('trafficManager').name]",
+			"type": "Microsoft.Network/trafficManagerProfiles",
+			"location": "[parameters('locations')[copyIndex()]]",
+			"apiVersion": "2015-11-01",
+			"properties": {
+				"profileStatus": "[parameters('trafficManager').profileStatus]",
+				"trafficRoutingMethod": "[parameters('trafficManager').routingMethod]",
+				"dnsConfig": {
+					"relativeName": "[parameters('trafficManager').relativeName]",
+					"ttl": "[parameters('trafficManager').ttl]"
+				},
+				"monitorConfig": {
+					"protocol": "[parameters('trafficManager').protocol]",
+					"port": "[parameters('trafficManager').port]",
+					"path": "[parameters('trafficManager').path]"
+				}
+			}
+		}
+	],
+	"outputs": { }
+}

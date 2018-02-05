@@ -1,0 +1,29 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"trafficManager": {
+			"type": "object"
+		},
+		"azureEndpoints": {
+			"type": "object"
+		},
+		"locations": {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[parameters('azureEndpoints').name]",
+			"type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+			"location": "[parameters('azureEndpoints').location]",
+			"apiVersion": "2015-11-01",
+			"properties": {
+				"targetResourceId": "[concat('Microsoft.Web/sites/', [parameters('relativeName')], copyIndex())]",
+				"endpointStatus": "[parameters('azureEndpoints').endpointStatus]"
+			}
+		}
+	],
+	"outputs": { }
+}
