@@ -34,20 +34,9 @@
 		},
 		"webSite2": {
 			"type": "string"
-		},
-		"loop1": {
-			"type": "string"
-		},
-		"loop2": {
-			"type": "string"
 		}
 	},
-	"variables": {
-		"webAppLocations": [
-			"West Europe",
-			"North Europe"
-		]
-	},
+	"variables": { },
 	"resources": [
 		{
 			"name": "[parameters('tmName')]",
@@ -77,10 +66,6 @@
 				"[parameters('tmName')]",
 				"[parameters('webSite1')]"
 			],
-			"copy": {
-				"name": "[parameters('loop1')]",
-				"count": "[length(variables('webAppLocations'))]"
-			},
 			"properties": {
 				"targetResourceId": "[parameters('webSite1')]",
 				"endpointStatus": "Enabled"
@@ -95,10 +80,6 @@
 				"[parameters('tmName')]",
 				"[parameters('webSite2')]"
 			],
-			"copy": {
-				"name": "[parameters('loop2')]",
-				"count": "[length(variables('webAppLocations'))]"
-			},
 			"properties": {
 				"targetResourceId": "[parameters('webSite2')]",
 				"endpointStatus": "Enabled"
