@@ -12,6 +12,7 @@ $envLocation1 = "West Europe"
 $envLocation2 = "North Europe"
 
 # Traffic manager profile configuration
+$envPrefix3 = "learning6-gen"
 $tmTemplateFile = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task6/trafman.json"
 $tmTemplateParameterUri = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task6/tmparameters.json"
 $tmEnvLocation = "global"
@@ -33,7 +34,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix2 `
                                    -TemplateParameterUri $templateParameterUri2 `
                                    -Force -Verbose
 # Traffic manager
-New-AzureRmResourceGroupDeployment -ResourceGroupName $tmEnvLocation `
+New-AzureRmResourceGroup -Name $envPrefix3 -Location $envLocation1 -Force
+New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix3 `
                                    -TemplateFile $tmTemplateFile `
                                    -TemplateParameterUri $tmTemplateParameterUri `
                                    -Force -Verbose
