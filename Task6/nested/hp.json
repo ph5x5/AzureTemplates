@@ -12,7 +12,7 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "[parameters('hostingPlan').name]",
+			"name": "[concat(parameters('hostingPlan').name, copyIndex())]",
 			"type": "Microsoft.Web/serverfarms",
 			"location": "[parameters('locations')[copyIndex()]]",
 			"apiVersion": "2016-03-01",
@@ -22,6 +22,10 @@
 			},
 			"properties": {
 				"name": "[parameters('hostingPlan').name]"
+			},
+			"copy": {
+				"name": "hpLoop",
+				"count": "[length(variables('locations'))]"
 			}
 		}
 	],

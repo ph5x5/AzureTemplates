@@ -57,12 +57,12 @@
 			"North Europe"
 		],
 		"hostingPlan": {
-			"name": "[concat(parameters('envPrefix'), '-hp-', copyIndex())]",
+			"name": "[concat(parameters('envPrefix'), '-hp-')]",
 			"skuName": "[parameters('skuName')]",
 			"skuCapacity": "[parameters('skuCapacity')]"
 		},
 		"webSite": {
-			"name": "[concat(parameters('relativeName'), '-', copyIndex())]"
+			"name": "[concat(parameters('relativeName'), '-')]"
 		},
 		"trafficManager": {
 			"name": "[concat(parameters('envPrefix'), '-tm')]",
@@ -76,7 +76,7 @@
 			"path": "[parameters('path')]"
 		},
 		"azureEndpoint": {
-			"name": "[concat(parameters('envPrefix'), '-tm/endpoint-', copyIndex())]"
+			"name": "[concat(parameters('envPrefix'), '-tm/endpoint-')]"
 			"location": "[parameters('tmLocation')]",
 			"relativeName": "[parameters('relativeName')]",
 			"endpointStatus": "[parameters('endpointStatus')]"
@@ -102,10 +102,6 @@
 						"value": "[variables('locations')]"
 					}
 				}
-			},
-			"copy": {
-				"name": "hpLoop",
-				"count": "[length(variables('locations'))]"
 			}
 		},
 		{
@@ -132,10 +128,6 @@
 						"value": "[variables('locations')]"
 					}
 				}
-			},
-			"copy": {
-				"name": "wsLoop",
-				"count": "[length(variables('locations'))]"
 			}
 		},
 		{
@@ -181,10 +173,6 @@
 						"value": "[variables('locations')]"
 					}
 				}
-			},
-			"copy": {
-				"name": "epLoop",
-				"count": "[length(variables('locations'))]"
 			}
 		}
 	],
