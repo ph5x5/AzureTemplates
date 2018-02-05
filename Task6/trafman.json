@@ -5,7 +5,7 @@
 		"envLocation": {
 			"type": "string"
 		},
-		"name": {
+		"tmName": {
 			"type": "string"
 		},
 		"profileStatus": {
@@ -33,7 +33,7 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "[parameters('name')]",
+			"name": "[parameters('tmName')]",
 			"type": "Microsoft.Network/trafficManagerProfiles",
 			"location": "[parameters('envLocation')]",
 			"apiVersion": "2015-11-01",

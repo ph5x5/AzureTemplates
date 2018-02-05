@@ -5,8 +5,8 @@
 		"envLocation": {
 			"value": "global"
 		},
-		"name": {
-			"value": "learning6-tm"
+		"tmName": {
+			"value": "learning6-gen-tm"
 		},
 		"profileStatus": {
 			"value": "Enabled"
