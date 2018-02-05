@@ -76,7 +76,7 @@
 			"path": "[parameters('path')]"
 		},
 		"azureEndpoint": {
-			"name": "[concat(parameters('envPrefix'), '-tm/endpoint')]"
+			"name": "[concat(parameters('envPrefix'), '-tm\endpoint')]"
 			"location": "[parameters('tmLocation')]",
 			"relativeName": "[parameters('relativeName')]",
 			"endpointStatus": "[parameters('endpointStatus')]"
