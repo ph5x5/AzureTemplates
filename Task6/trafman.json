@@ -72,7 +72,7 @@
 				"[parameters('webSite1')]"
 			],
 			"copy": {
-				"name": "endpointloop",
+				"name": "endpointloop1",
 				"count": "[length(variables('webAppLocations'))]"
 			},
 			"properties": {
@@ -90,7 +90,7 @@
 				"[parameters('webSite2')]"
 			],
 			"copy": {
-				"name": "endpointloop",
+				"name": "endpointloop2",
 				"count": "[length(variables('webAppLocations'))]"
 			},
 			"properties": {
