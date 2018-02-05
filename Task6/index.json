@@ -57,12 +57,12 @@
 			"North Europe"
 		],
 		"hostingPlan": {
-			"name": "[concat(parameters('envPrefix'), '-hp-')]",
+			"name": "[concat(parameters('envPrefix'), '-hp')]",
 			"skuName": "[parameters('skuName')]",
 			"skuCapacity": "[parameters('skuCapacity')]"
 		},
 		"webSite": {
-			"name": "[concat(parameters('relativeName'), '-')]"
+			"name": "[parameters('relativeName')]"
 		},
 		"trafficManager": {
 			"name": "[concat(parameters('envPrefix'), '-tm')]",
@@ -76,7 +76,7 @@
 			"path": "[parameters('path')]"
 		},
 		"azureEndpoint": {
-			"name": "[concat(parameters('envPrefix'), '-tm/endpoint-')]"
+			"name": "[concat(parameters('envPrefix'), '-tm/endpoint')]"
 			"location": "[parameters('tmLocation')]",
 			"relativeName": "[parameters('relativeName')]",
 			"endpointStatus": "[parameters('endpointStatus')]"

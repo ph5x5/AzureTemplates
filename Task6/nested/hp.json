@@ -12,7 +12,7 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "[concat(parameters('hostingPlan').name, copyIndex())]",
+			"name": "[concat(parameters('hostingPlan').name, '-', copyIndex())]",
 			"type": "Microsoft.Web/serverfarms",
 			"location": "[parameters('locations')[copyIndex()]]",
 			"apiVersion": "2016-03-01",

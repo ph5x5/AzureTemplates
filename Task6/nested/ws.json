@@ -15,7 +15,7 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "[concat(parameters('webSite').name, copyIndex())]",
+			"name": "[concat(parameters('webSite').name, '-', copyIndex())]",
 			"type": "Microsoft.Web/sites",
 			"location": "[parameters('locations')[copyIndex()]]",
 			"apiVersion": "2016-03-01",
