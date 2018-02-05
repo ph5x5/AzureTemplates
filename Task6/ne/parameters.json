@@ -15,6 +15,7 @@
 			"value": "S1"
 		},
 		"skuCapacity": {
+			"type": "int",
 			"value": 1
 		},
 		"siteName": {
