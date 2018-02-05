@@ -1,0 +1,54 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"envPrefix": {
+			"type": "string"
+		}
+		"envLocation": {
+			"type": "string"
+		}
+		"hostingPlanName": {
+			"type": "string"
+		},
+		"skuName": {
+			"type": "string"
+		},
+		"skuCapacity": {
+			"type": "int"
+		},
+		"siteName": {
+			"type": "string"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[parameters('hostingPlanName')]",
+			"type": "Microsoft.Web/serverfarms",
+			"location": "[parameters('envLocation')]",
+			"apiVersion": "2016-03-01",
+			"sku": {
+				"name": "[parameters('skuName')]",
+				"capacity": "[parameters('skuCapacity')]"
+			},
+			"properties": {
+				"name": "[parameters('hostingPlanName')]"
+			},
+		},
+		{
+			"name": "[parameters('siteName')]",
+			"type": "Microsoft.Web/sites",
+			"location": "[parameters('envLocation')]",
+			"apiVersion": "2016-03-01",
+			"dependsOn": [
+				"[parameters('hostingPlanName')]"
+			],
+			"properties": {
+				"name": "[parameters('siteName')]",
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+			}
+		}
+	],
+	"outputs": { }
+}
