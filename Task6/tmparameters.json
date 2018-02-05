@@ -28,6 +28,12 @@
 		},
 		"path": {
 			"value": "/"
+		},
+		"webSite1": {
+			"value": "Microsoft.Web/sites/learning6-we-site"
+		},
+		"webSite2": {
+			"value": "Microsoft.Web/sites/learning6-ne-site"
 		}
 	}
 }

@@ -28,9 +28,20 @@
 		},
 		"path": {
 			"type": "string"
+		},
+		"webSite1": {
+			"type": "string"
+		},
+		"webSite2": {
+			"type": "string"
 		}
 	},
-	"variables": { },
+	"variables": {
+		"webAppLocations": [
+			"West Europe",
+			"North Europe"
+		]
+	},
 	"resources": [
 		{
 			"name": "[parameters('tmName')]",
@@ -49,6 +60,42 @@
 					"port": "[parameters('port')]",
 					"path": "[parameters('path')]"
 				}
+			}
+		},
+		{
+			"name": "[concat(parameters('tmName'), '/ep1')]",
+			"type": "[Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+			"location": "[parameters('envLocation')]",
+			"apiVersion": "2015-11-01",
+			"dependsOn": [
+				"[parameters('tmName')]",
+				"[parameters('webSite1')]"
+			],
+			"copy": {
+				"name": "endpointloop",
+				"count": "[length(variables('webAppLocations'))]"
+			},
+			"properties": {
+				"targetResourceId": "[parameters('webSite1')]",
+				"endpointStatus": "Enabled"
+			}
+		},
+		{
+			"name": "[concat(parameters('tmName'), '/ep2')]",
+			"type": "[Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+			"location": "[parameters('envLocation')]",
+			"apiVersion": "2015-11-01",
+			"dependsOn": [
+				"[parameters('tmName')]",
+				"[parameters('webSite2')]"
+			],
+			"copy": {
+				"name": "endpointloop",
+				"count": "[length(variables('webAppLocations'))]"
+			},
+			"properties": {
+				"targetResourceId": "[parameters('webSite2')]",
+				"endpointStatus": "Enabled"
 			}
 		}
 	],
