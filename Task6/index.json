@@ -15,7 +15,7 @@
 			"type": "string"
 		},
 		"profileStatus": {
-			"type": "strig"
+			"type": "string"
 		},
 		"routingMethod": {
 			"type": "string"
