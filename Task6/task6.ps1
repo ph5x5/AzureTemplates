@@ -13,7 +13,7 @@ $envLocation2 = "North Europe"
 
 # Traffic manager profile configuration
 $tmTemplateFile = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task6/trafman.json"
-$tmTemplaterParameterUri = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task6/tmparameters.json"
+$tmTemplateParameterUri = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task6/tmparameters.json"
 $tmEnvLocation = "global"
 
 # Account Login
