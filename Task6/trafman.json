@@ -34,6 +34,12 @@
 		},
 		"webSite2": {
 			"type": "string"
+		},
+		"loop1": {
+			"type": "string"
+		},
+		"loop2": {
+			"type": "string"
 		}
 	},
 	"variables": {
@@ -64,7 +70,7 @@
 		},
 		{
 			"name": "[concat(parameters('tmName'), '/ep1')]",
-			"type": "[Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+			"type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
 			"location": "[parameters('envLocation')]",
 			"apiVersion": "2015-11-01",
 			"dependsOn": [
@@ -72,7 +78,7 @@
 				"[parameters('webSite1')]"
 			],
 			"copy": {
-				"name": "endpointloop1",
+				"name": "[parameters('loop1')]",
 				"count": "[length(variables('webAppLocations'))]"
 			},
 			"properties": {
@@ -82,7 +88,7 @@
 		},
 		{
 			"name": "[concat(parameters('tmName'), '/ep2')]",
-			"type": "[Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+			"type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
 			"location": "[parameters('envLocation')]",
 			"apiVersion": "2015-11-01",
 			"dependsOn": [
@@ -90,7 +96,7 @@
 				"[parameters('webSite2')]"
 			],
 			"copy": {
-				"name": "endpointloop2",
+				"name": "[parameters('loop2')]",
 				"count": "[length(variables('webAppLocations'))]"
 			},
 			"properties": {

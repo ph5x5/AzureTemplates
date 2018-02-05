@@ -34,6 +34,12 @@
 		},
 		"webSite2": {
 			"value": "Microsoft.Web/sites/learning6-ne-site"
+		},
+		"loop1": {
+			"value": "endpointloop1"
+		},
+		"loop2": {
+			"value": "endpointloop2"
 		}
 	}
 }
