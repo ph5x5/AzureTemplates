@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"envPrefix1": {
+			"value": "learning6-we"
+		},
+		"envPrefix2": {
+			"value": "learning6-ne"
+		},
+		"envLocation1": {
+			"value": "West Europe"
+		},
+		"envLocation2": {
+			"value": "North Europe"
+		},
+		"hostingPlan1Name": {
+			"value": "learning6-we-hp"
+		},
+		"hostingPlan2Name": {
+			"value": "learning6-ne-hp"
+		},
+		"skuName": {
+			"value": "S1"
+		},
+		"skuCapacity": {
+			"value": 1
+		},
+		"site1Name": {
+			"value": "learning6-we-site"
+		},
+		"site2Name": {
+			"value": "learning6-ne-site"
+		}
+	}
+}

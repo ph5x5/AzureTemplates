@@ -1,0 +1,93 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"envPrefix1": {
+			"type": "string"
+		},
+		"envPrefix2": {
+			"type": "string"
+		},
+		"envLocation1": {
+			"type": "string"
+		},
+		"envLocation2": {
+			"type": "string"
+		},
+		"hostingPlan1Name": {
+			"type": "string"
+		},
+		"hostingPlan2Name": {
+			"type": "string"
+		},
+		"skuName": {
+			"type": "string"
+		},
+		"skuCapacity": {
+			"type": "int"
+		},
+		"site1Name": {
+			"type": "string"
+		},
+		"site2Name": {
+			"type": "string"
+		},
+
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[parameters('hostingPlan1Name')]",
+			"type": "Microsoft.Web/serverfarms",
+			"location": "[parameters('envLocation1')]",
+			"apiVersion": "2016-03-01",
+			"sku": {
+				"name": "[parameters('skuName')]",
+				"capacity": "[parameters('skuCapacity')]"
+			},
+			"properties": {
+				"name": "[parameters('hostingPlan1Name')]"
+			},
+		},
+		{
+			"name": "[parameters('hostingPlan2Name')]",
+			"type": "Microsoft.Web/serverfarms",
+			"location": "[parameters('envLocation2')]",
+			"apiVersion": "2016-03-01",
+			"sku": {
+				"name": "[parameters('skuName')]",
+				"capacity": "[parameters('skuCapacity')]"
+			},
+			"properties": {
+				"name": "[parameters('hostingPlan2Name')]"
+			},
+		},
+		{
+			"name": "[parameters('site1Name')]",
+			"type": "Microsoft.Web/sites",
+			"location": "[parameters('envLocation1')]",
+			"apiVersion": "2016-03-01",
+			"dependsOn": [
+				"[parameters('hostingPlan1Name')]"
+			],
+			"properties": {
+				"name": "[parameters('site1Name')]",
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan1Name'))]"
+			}
+		},
+		{
+			"name": "[parameters('site2Name')]",
+			"type": "Microsoft.Web/sites",
+			"location": "[parameters('envLocation2')]",
+			"apiVersion": "2016-03-01",
+			"dependsOn": [
+				"[parameters('hostingPlan2Name')]"
+			],
+			"properties": {
+				"name": "[parameters('site2Name')]",
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan2Name'))]"
+			}
+		},
+	],
+	"outputs": { }
+}
