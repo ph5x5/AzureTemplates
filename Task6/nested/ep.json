@@ -16,7 +16,7 @@
 	"resources": [
 		{
 			"name": "[concat(parameters('azureEndpoint').name, '-', copyIndex())]",
-			"type": "Microsoft.Network/trafficManagerProfiles/azureEndpoint",
+			"type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
 			"location": "[parameters('azureEndpoint').location]",
 			"apiVersion": "2015-11-01",
 			"properties": {
