@@ -20,7 +20,7 @@
 			"location": "[parameters('azureEndpoint').location]",
 			"apiVersion": "2015-11-01",
 			"properties": {
-				"targetResourceId": "[concat('Microsoft.Web/sites/', parameters('relativeName'), copyIndex())]",
+				"targetResourceId": "[concat('Microsoft.Web/sites/', parameters('azureEndpoint').relativeName, copyIndex())]",
 				"endpointStatus": "[parameters('azureEndpoint').endpointStatus]"
 			},
 			"copy": {
