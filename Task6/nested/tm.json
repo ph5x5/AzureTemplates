@@ -11,7 +11,7 @@
 		{
 			"name": "[parameters('trafficManager').name]",
 			"type": "Microsoft.Network/trafficManagerProfiles",
-			"location": "[parameters('locations')[copyIndex()]]",
+			"location": "[parameters('trafficManager').location]",
 			"apiVersion": "2015-11-01",
 			"properties": {
 				"profileStatus": "[parameters('trafficManager').profileStatus]",
