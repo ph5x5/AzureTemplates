@@ -52,10 +52,13 @@
 		}
 	},
 	"variables": {
-		"locations": [
-			"West Europe",
-			"North Europe"
-		],
+		"locations": {
+			"type": "array",
+			"value": [
+				"West Europe",
+				"North Europe"
+			],
+		}
 		"hostingPlan": {
 			"name": "[concat(parameters('envPrefix'), '-hp')]",
 			"skuName": "[parameters('skuName')]",
