@@ -58,7 +58,7 @@
 				"West Europe",
 				"North Europe"
 			]
-		}
+		},
 		"hostingPlan": {
 			"name": "[concat(parameters('envPrefix'), '-hp')]",
 			"skuName": "[parameters('skuName')]",
