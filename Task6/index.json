@@ -12,7 +12,7 @@
 			"type": "string"
 		},
 		"skuCapacity": {
-			"type": "string"
+			"type": "int"
 		},
 		"profileStatus": {
 			"type": "string"
