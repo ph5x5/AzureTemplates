@@ -5,7 +5,7 @@
 		"trafficManager": {
 			"type": "object"
 		},
-		"azureEndpoints": {
+		"azureEndpoint": {
 			"type": "object"
 		},
 		"locations": {
