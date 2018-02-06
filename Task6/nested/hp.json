@@ -6,7 +6,7 @@
 			"type": "object"
 		},
 		"locations": {
-			"type": "object"
+			"type": "array"
 		}
 	},
 	"variables": { },
