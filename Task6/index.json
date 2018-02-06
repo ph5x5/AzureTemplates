@@ -109,7 +109,7 @@
 			"name": "wsTemplate",
 			"type": "Microsoft.Resources/deployments",
 			"dependsOn": [
-				"[resourceId('Microsoft.Web/serverfarms/', concat(variables('hostingPlan').name, copyIndex()))]"
+				"hpTemplate"
 			],
 			"properties": {
 				"mode": "Incremental",
@@ -153,8 +153,8 @@
 			"name": "epTemplate",
 			"type": "Microsoft.Resources/deployments",
 			"dependsOn": [
-				"[resourceId('Microsoft.Web/sites/', concat(parameters('relativeName').name, '-', copyIndex()))]",
-				"[resourceId('Microsoft.Network/trafficManagerProfiles/', variables('trafficManager').name)]"
+				"wsTemplate",
+				"tmTemplate"
 			],
 			"properties": {
 				"mode": "Incremental",
