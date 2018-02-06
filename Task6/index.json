@@ -52,13 +52,6 @@
 		}
 	},
 	"variables": {
-		"locations": {
-			"type": "array",
-			"value": [
-				"West Europe",
-				"North Europe"
-			]
-		},
 		"hostingPlan": {
 			"name": "[concat(parameters('envPrefix'), '-hp')]",
 			"skuName": "[parameters('skuName')]",
@@ -100,9 +93,6 @@
 				"parameters": {
 					"hostingPlan": {
 						"value": "[variables('hostingPlan')]"
-					},
-					"locations": {
-						"value": "[variables('locations')]"
 					}
 				}
 			}
@@ -126,9 +116,6 @@
 					},
 					"webSite": {
 						"value": "[variables('webSite')]"
-					},
-					"locations": {
-						"value": "[variables('locations')]"
 					}
 				}
 			}
@@ -171,9 +158,6 @@
 					},
 					"azureEndpoint": {
 						"value": "[variables('azureEndpoint')]"
-					},
-					"locations": {
-						"value": "[variables('locations')]"
 					}
 				}
 			}

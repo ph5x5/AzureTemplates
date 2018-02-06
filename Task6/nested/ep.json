@@ -7,12 +7,14 @@
 		},
 		"azureEndpoint": {
 			"type": "object"
-		},
-		"locations": {
-			"type": "array"
 		}
 	},
-	"variables": { },
+	"variables": {
+		"locations": [
+			"West Europe",
+			"North Europe"
+		]
+	},
 	"resources": [
 		{
 			"name": "[concat(parameters('azureEndpoints').name, '-', copyIndex())]",
