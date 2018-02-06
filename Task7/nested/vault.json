@@ -1,0 +1,24 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"vault": {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[parameters('vault').name]",
+			"type": "Microsoft.RecoveryServices/vaults",
+			"location": "[parameters('vault').location]",
+			"apiVersion": "2016-06-01",
+			"sku": {
+				"name": "[concat(parameters('vault').name, '-sku')]",
+				"tier": "[parameters('vault').skuTier]"
+			},
+			"properties": { }
+		}
+	],
+	"outputs": { }
+}

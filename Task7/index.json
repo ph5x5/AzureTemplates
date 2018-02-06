@@ -1,0 +1,135 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"envPrefix": {
+			"type": "string"
+		},
+		"envLocation": {
+			"type": "string"
+		},
+		"skuTier": {
+			"type": "string"
+		},
+		"backupManagementType": {
+			"type": "string"
+		},
+		"protectedItemsCount": {
+			"type": "int"
+		},
+		"vmName": {
+			"type": "string"
+		},
+		"backupFabric": {
+			"type": "string"
+		},
+		"v2VmType": {
+			"type": "string"
+		},
+		"v2VmContainer": {
+			"type": "string"
+		},
+		"v2Vm": {
+			"type": "string"
+		},
+		"vaultTemplateLink": {
+			"type": "string"
+		},
+		"bpTemplateLink": {
+			"type": "string"
+		},
+		"backupTemplateLink": {
+			"type": "string"
+		}
+	},
+	"variables": {
+		"vault": {
+			"name": "[concat(parameters('envPrefix'), '-vault')]",
+			"location": "[parameters('envLocation')]",
+			"skuTier": "[parameters('skuTier')]"
+		},
+		"backupPolicy": {
+			"backupManagementType": "[parameters('backupManagementType')]",
+			"protectedItemsCount": "[parameters('protectedItemsCount')]"
+		},
+		"backup": {
+			"name": "[concat(parameters('envPrefix'), '-backup')]",
+			"location": "[parameters('envLocation')]",
+			"vmName": "[parameters('vmName')]",
+			"backupFabric": "[parameters('backupFabric')]",
+			"v2VmType": "[parameters('v2VmType')]",
+			"v2VmContainer": "[parameters('v2VmContainer')]",
+			"v2Vm": "[parameters('v2Vm')]"
+		}
+	},
+	"resources": [
+		{
+			"apiVersion": "2017-05-10",
+			"name": "vaultTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [	],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('vaultTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"vault": {
+						"value": "[variables('vault')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "bpTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [
+				"vaultTemplate"
+			],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('bpTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"vault": {
+						"value": "[variables('vault')]"
+					},
+					"backupPolicy": {
+						"value": "[variables('backupPolicy')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "backupTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [
+				"vaultTemplate"
+			],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('backupTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"vault": {
+						"value": "[variables('vault')]"
+					},
+					"backupPolicy": {
+						"value": "[variables('backupPolicy')]"
+					},
+					"backup": {
+						"value": "[variables('backup')]"
+					}
+				}
+			}
+		}
+	],
+	"outputs": { }
+}

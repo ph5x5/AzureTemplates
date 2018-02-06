@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"envPrefix": {
+			"value": "learning4"
+		},
+		"envLocation": {
+			"value": "West Europe"
+		},
+		"skuTier": {
+			"value": "Standard"
+		},
+		"backupManagementType": {
+			"value": "AzureIaasVM"
+		},
+		"protectedItemsCount": {
+			"value": 1
+		},
+		"vmName": {
+			"value": "learning4-vm"
+		},
+		"backupFabric": {
+			"value": "Azure"
+		},
+		"v2VmType": {
+			"value": "Microsoft.Compute/virtualMachines"
+		},
+		"v2VmContainer": {
+			"value": "iaasvmcontainer;iaasvmcontainerv2"
+		},
+		"v2Vm": {
+			"value": "vm;iaasvmcontainerv2"
+		},
+		"vaultTemplateLink": {
+			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task7/nested/vault.json"
+		},
+		"bpTemplateLink": {
+			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task7/nested/bp.json"
+		},
+		"backupTemplateLink": {
+			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task7/nested/backup.json"
+		}
+	}
+}

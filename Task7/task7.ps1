@@ -17,8 +17,3 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix `
                                    -TemplateFile $templateFile `
                                    -TemplateParameterUri $templateParameterUri `
                                    -Force -Verbose
-
-# Info
-$tm = Get-AzureRmTrafficManagerProfile -ResourceGroupName $envPrefix
-$tm
-$tm.Endpoints
