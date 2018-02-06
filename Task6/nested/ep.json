@@ -15,13 +15,13 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "[concat(parameters('azureEndpoints').name, '-', copyIndex())]",
-			"type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
-			"location": "[parameters('azureEndpoints').location]",
+			"name": "[concat(parameters('azureEndpoint').name, '-', copyIndex())]",
+			"type": "Microsoft.Network/trafficManagerProfiles/azureEndpoint",
+			"location": "[parameters('azureEndpoint').location]",
 			"apiVersion": "2015-11-01",
 			"properties": {
 				"targetResourceId": "[concat('Microsoft.Web/sites/', [parameters('relativeName')], copyIndex())]",
-				"endpointStatus": "[parameters('azureEndpoints').endpointStatus]"
+				"endpointStatus": "[parameters('azureEndpoint').endpointStatus]"
 			},
 			"copy": {
 				"name": "epLoop",
