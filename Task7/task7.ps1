@@ -1,11 +1,11 @@
 ﻿# Andrey Murzich
-# Task 6
-# Azure Web Applications deployment
+# Task 7
+# Azure Recovery Vault Manipulation
 
 # Templates configuration
-$templateFile = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task6/index.json"
-$templateParameterUri = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task6/parameters.json"
-$envPrefix = "learning6"
+$templateFile = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task7/index.json"
+$templateParameterUri = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task7/parameters.json"
+$envPrefix = "learning7"
 $envLocation = "West Europe"
 
 # Account Login
