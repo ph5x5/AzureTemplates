@@ -5,7 +5,7 @@
 # Templates configuration
 $templateFile = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task7/index.json"
 $templateParameterUri = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task7/parameters.json"
-$envPrefix = "learning7"
+$envPrefix = "learning4"
 $envLocation = "West Europe"
 
 # Account Login
