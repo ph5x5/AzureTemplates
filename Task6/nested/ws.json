@@ -20,7 +20,7 @@
 			"location": "[parameters('locations')[copyIndex()]]",
 			"apiVersion": "2016-03-01",
 			"properties": {
-				"name": "[parameters('webSite').name]",
+				"name": "[concat(parameters('webSite').name, '-', copyIndex())]",
 				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').name)]"
 			},
 			"copy": {

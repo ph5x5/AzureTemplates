@@ -21,7 +21,7 @@
 				"capacity": "[parameters('hostingPlan').skuCapacity]"
 			},
 			"properties": {
-				"name": "[parameters('hostingPlan').name]"
+				"name": "[concat(parameters('hostingPlan').name, '-', copyIndex())]"
 			},
 			"copy": {
 				"name": "hpLoop",
