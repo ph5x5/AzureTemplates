@@ -4,6 +4,9 @@
 	"parameters": {
 		"hostingPlan": {
 			"type": "object"
+		},
+		"locations": {
+			"type": "array"
 		}
 	},
 	"variables": { },

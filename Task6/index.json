@@ -97,6 +97,9 @@
 				"parameters": {
 					"hostingPlan": {
 						"value": "[variables('hostingPlan')]"
+					},
+					"locations": {
+						"value": "[variables('locations')]"
 					}
 				}
 			}
