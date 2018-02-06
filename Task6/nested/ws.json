@@ -21,7 +21,7 @@
 			"apiVersion": "2016-03-01",
 			"properties": {
 				"name": "[concat(parameters('webSite').name, '-', copyIndex())]",
-				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').name)]"
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', concat(parameters('hostingPlan').name, '-', copyIndex()))]"
 			},
 			"copy": {
 				"name": "wsLoop",
