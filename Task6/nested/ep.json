@@ -7,14 +7,12 @@
 		},
 		"azureEndpoint": {
 			"type": "object"
+		},
+		"locations": {
+			"type": "array"
 		}
 	},
-	"variables": {
-		"locations": [
-			"West Europe",
-			"North Europe"
-		]
-	},
+	"variables": { },
 	"resources": [
 		{
 			"name": "[concat(parameters('azureEndpoints').name, '-', copyIndex())]",
@@ -27,7 +25,7 @@
 			},
 			"copy": {
 				"name": "epLoop",
-				"count": "[length(variables('locations'))]"
+				"count": "[length(parameters('locations'))]"
 			}
 		}
 	],
