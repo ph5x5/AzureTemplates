@@ -2,6 +2,9 @@
 	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
+		"general": {
+			"type": "object"
+		},
 		"vault": {
 			"type": "object"
 		},
@@ -15,11 +18,14 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "",
+			"name": "[concat(parameters('vault').name, '/', parameters('backup').backupFabric, '/', parameters('backup').v2VmContainer, concat(parameters('general').envPrefix, ';', parameters('backup').vmName, '/', parameters('backup').v2Vm))]",
 			"type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems",
 			"location": "[parameters('backup').location]",
 			"apiVersion": "2016-06-01",
 			"properties": {
+				"protectedItemType": "[parameters('backup').v2VmType]",
+				"policyId": "[resourceId('Microsoft.RecoveryServices/vaults/backupPolicies', parameters('vault').name, parameters('backupPolicy').name)]",
+				"sourceResourceId": "[resourceId(subscription().subscriptionId, parameters('general').envPrefix, 'Microsoft.Compute/virtualMachines', parameters('backup').vmName)]"
 			}
 		}
 	],

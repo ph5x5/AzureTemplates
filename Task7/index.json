@@ -43,6 +43,9 @@
 		}
 	},
 	"variables": {
+		"general": {
+			"envPrefix": "[parameters('envPrefix')]"
+		},
 		"vault": {
 			"name": "[concat(parameters('envPrefix'), '-vault')]",
 			"location": "[parameters('envLocation')]",
@@ -118,6 +121,9 @@
 					"contentVersion": "1.0.0.0"
 				},
 				"parameters": {
+					"general": {
+						"value": "[variables('general')]"
+					},
 					"vault": {
 						"value": "[variables('vault')]"
 					},
