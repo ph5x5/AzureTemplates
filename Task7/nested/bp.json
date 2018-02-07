@@ -17,8 +17,8 @@
 			"location": "[parameters('vault').location]",
 			"apiVersion": "2016-06-01",
 			"properties": {
-				"backupManagementType": "[parameters('backupManagementType')]",
-				"protectedItemsCount": "[parameters('protectedItemsCount')]"
+				"backupManagementType": "[parameters('backupPolicy').backupManagementType]",
+				"protectedItemsCount": "[parameters('backupPolicy').protectedItemsCount]"
 			}
 		}
 	],
