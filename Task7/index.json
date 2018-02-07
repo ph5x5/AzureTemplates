@@ -116,7 +116,8 @@
 			"name": "backupTemplate",
 			"type": "Microsoft.Resources/deployments",
 			"dependsOn": [
-				"vaultTemplate"
+				"vaultTemplate",
+				"bpTemplate"
 			],
 			"properties": {
 				"mode": "Incremental",
