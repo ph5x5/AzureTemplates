@@ -14,7 +14,7 @@
 			"location": "[parameters('vault').location]",
 			"apiVersion": "2016-06-01",
 			"sku": {
-				"name": "[concat(parameters('vault').name, '-sku')]",
+				"name": "[parameters('vault').skuName]",
 				"tier": "[parameters('vault').skuTier]"
 			},
 			"properties": { }

@@ -8,6 +8,9 @@
 		"envLocation": {
 			"value": "West Europe"
 		},
+		"skuName": {
+			"value": "RS0"
+		},
 		"skuTier": {
 			"value": "Standard"
 		},

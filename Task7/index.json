@@ -8,6 +8,9 @@
 		"envLocation": {
 			"type": "string"
 		},
+		"skuName": {
+			"type": "string"
+		},
 		"skuTier": {
 			"type": "string"
 		},
@@ -49,6 +52,7 @@
 		"vault": {
 			"name": "[concat(parameters('envPrefix'), '-vault')]",
 			"location": "[parameters('envLocation')]",
+			"skuName": "[parameters('skuName')]",
 			"skuTier": "[parameters('skuTier')]"
 		},
 		"backupPolicy": {
