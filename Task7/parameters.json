@@ -33,7 +33,7 @@
 			"value": "SimpleSchedulePolicy"
 		},
 		"retentionPolicyType": {
-			"value": "ShortTermRetentionPolicy"
+			"value": "LongTermRetentionPolicy"
 		},
 		"timeZone": {
 			"value": "UTC+3"
