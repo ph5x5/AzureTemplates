@@ -19,6 +19,14 @@
 			"properties": {
 				"backupManagementType": "[parameters('backupPolicy').backupManagementType]",
 				"protectedItemsCount": "[parameters('backupPolicy').protectedItemsCount]"
+				"schedulePolicy": {
+					"scheduleRunFrequency": "[parameters('scheduleRunFrequency')]",
+					"scheduleRunDays": "[parameters('scheduleRunDays')]",
+					"scheduleRunTimes": "[parameters('scheduleRunTimes')]",
+					"schedulePolicyType": "[parameters('schedulePolicyType')]"
+				},
+				"retentionPolicy": {
+				}
 			}
 		}
 	],

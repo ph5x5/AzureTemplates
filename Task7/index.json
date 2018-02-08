@@ -20,6 +20,18 @@
 		"protectedItemsCount": {
 			"type": "int"
 		},
+		"scheduleRunFrequency": {
+			"type": "string"
+		},
+		"scheduleRunDays": {
+			"type": "string"
+		},
+		"scheduleRunTimes": {
+			"type": "string"
+		},
+		"schedulePolicyType": {
+			"type": "string"
+		},
 		"vmName": {
 			"type": "string"
 		},
@@ -57,7 +69,11 @@
 		},
 		"backupPolicy": {
 			"backupManagementType": "[parameters('backupManagementType')]",
-			"protectedItemsCount": "[parameters('protectedItemsCount')]"
+			"protectedItemsCount": "[parameters('protectedItemsCount')]",
+			"scheduleRunFrequency": "[parameters('scheduleRunFrequency')]",
+			"scheduleRunDays": "[parameters('scheduleRunDays')]",
+			"scheduleRunTimes": "[parameters('scheduleRunTimes')]",
+			"schedulePolicyType": "[parameters('schedulePolicyType')]"
 		},
 		"backup": {
 			"name": "[concat(parameters('envPrefix'), '-backup')]",
