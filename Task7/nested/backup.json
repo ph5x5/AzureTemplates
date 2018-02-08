@@ -18,7 +18,7 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "protectedVm",
+			"name": "[concat(parameters('vault').name, '/', parameters('backup').backupFabric, '/', parameters('backup').v2VmContainer, concat(parameters('general').envPrefix, ';', parameters('backup').vmName, '/', parameters('backup').v2Vm))]",
 			"type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems",
 			"location": "[parameters('backup').location]",
 			"apiVersion": "2016-06-01",
