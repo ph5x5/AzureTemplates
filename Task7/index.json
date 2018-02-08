@@ -32,6 +32,15 @@
 		"schedulePolicyType": {
 			"type": "string"
 		},
+		"dailyRetentionTimes": {
+			"type": "array"
+		},
+		"dailyRetentionDurationCount": {
+			"type": "int"
+		},
+		"dailyRetentionDurationType": {
+			"type": "string"
+		},
 		"retentionPolicyType": {
 			"type": "string"
 		},
@@ -80,6 +89,10 @@
 			"scheduleRunDays": "[parameters('scheduleRunDays')]",
 			"scheduleRunTimes": "[parameters('scheduleRunTimes')]",
 			"schedulePolicyType": "[parameters('schedulePolicyType')]",
+			"dailyRetentionTimes": "[parameters('dailyRetentionTimes')]",
+			"dailyRetentionDurationCount": "[parameters('dailyRetentionDurationCount')]",
+			"dailyRetentionDurationType": "[parameters('dailyRetentionDurationType')]",
+			"retentionPolicyType": "[parameters('retentionPolicyType')]",
 			"timeZone": "[parameters('timeZone')]"
 		},
 		"backup": {

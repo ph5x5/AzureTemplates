@@ -26,10 +26,17 @@
 					"schedulePolicyType": "[parameters('backupPolicy').schedulePolicyType]"
 				},
 				"retentionPolicy": {
-					"dailySchedule": null,
+					"dailySchedule": {
+						"retentionTimes": "[parameters('backupPolicy').dailyRetentionTimes]",
+						"retentionDuration": {
+							"count": "[parameters('backupPolicy').dailyRetentionDurationCount]",
+							"durationType": "[parameters('backupPolicy').dailyRetentionDurationType]"
+						}
+					},
 					"weeklySchedule": null,
 					"monthlySchedule": null,
-					"yearlySchedule": null
+					"yearlySchedule": null,
+					"retentionPolicyType": "[parameters('backupPolicy').retentionPolicyType]"
 				},
 				"timeZone": "[parameters('backupPolicy').timeZone]"
 			}

@@ -32,6 +32,15 @@
 		"schedulePolicyType": {
 			"value": "SimpleSchedulePolicy"
 		},
+		"dailyRetentionTimes": {
+			"value": [ "2018-02-08T19:00:00Z" ]
+		},
+		"dailyRetentionDurationCount": {
+			"value": 1
+		},
+		"dailyRetentionDurationType": {
+			"value": "Days"
+		},
 		"retentionPolicyType": {
 			"value": "LongTermRetentionPolicy"
 		},
