@@ -32,6 +32,12 @@
 		"schedulePolicyType": {
 			"value": "SimpleSchedulePolicy"
 		},
+		"retentionPolicyType": {
+			"value": "ShortTermRetentionPolicy"
+		},
+		"timeZone": {
+			"value": "UTC+3"
+		},
 		"vmName": {
 			"value": "learning4-vm"
 		},

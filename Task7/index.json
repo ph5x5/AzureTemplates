@@ -32,6 +32,12 @@
 		"schedulePolicyType": {
 			"type": "string"
 		},
+		"retentionPolicyType": {
+			"type": "string"
+		},
+		"timeZone": {
+			"type": "string"
+		},
 		"vmName": {
 			"type": "string"
 		},
@@ -73,7 +79,8 @@
 			"scheduleRunFrequency": "[parameters('scheduleRunFrequency')]",
 			"scheduleRunDays": "[parameters('scheduleRunDays')]",
 			"scheduleRunTimes": "[parameters('scheduleRunTimes')]",
-			"schedulePolicyType": "[parameters('schedulePolicyType')]"
+			"schedulePolicyType": "[parameters('schedulePolicyType')]",
+			"timeZone": "[parameters('timeZone')]"
 		},
 		"backup": {
 			"name": "[concat(parameters('envPrefix'), '-backup')]",

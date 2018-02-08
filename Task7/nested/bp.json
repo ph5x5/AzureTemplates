@@ -24,7 +24,14 @@
 					"scheduleRunDays": "[parameters('backupPolicy').scheduleRunDays]",
 					"scheduleRunTimes": "[parameters('backupPolicy').scheduleRunTimes]",
 					"schedulePolicyType": "[parameters('backupPolicy').schedulePolicyType]"
-				}
+				},
+				"retentionPolicy": {
+					"dailySchedule": null,
+					"weeklySchedule": null,
+					"monthlySchedule": null,
+					"yearlySchedule": null
+				},
+				"timeZone": "[parameters('backupPolicy').timeZone]"
 			}
 		}
 	],
