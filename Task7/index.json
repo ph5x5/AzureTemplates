@@ -126,34 +126,10 @@
 		},
 		{
 			"apiVersion": "2017-05-10",
-			"name": "bpTemplate",
-			"type": "Microsoft.Resources/deployments",
-			"dependsOn": [
-				"vaultTemplate"
-			],
-			"properties": {
-				"mode": "Incremental",
-				"templateLink": {
-					"uri": "[parameters('bpTemplateLink')]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"vault": {
-						"value": "[variables('vault')]"
-					},
-					"backupPolicy": {
-						"value": "[variables('backupPolicy')]"
-					}
-				}
-			}
-		},
-		{
-			"apiVersion": "2017-05-10",
 			"name": "backupTemplate",
 			"type": "Microsoft.Resources/deployments",
 			"dependsOn": [
-				"vaultTemplate",
-				"bpTemplate"
+				"vaultTemplate"
 			],
 			"properties": {
 				"mode": "Incremental",
