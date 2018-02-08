@@ -8,9 +8,6 @@
 		"vault": {
 			"type": "object"
 		},
-		"backupPolicy": {
-			"type": "object"
-		},
 		"backup": {
 			"type": "object"
 		}

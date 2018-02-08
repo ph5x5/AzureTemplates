@@ -14,36 +14,6 @@
 		"skuTier": {
 			"type": "string"
 		},
-		"backupManagementType": {
-			"type": "string"
-		},
-		"protectedItemsCount": {
-			"type": "int"
-		},
-		"scheduleRunFrequency": {
-			"type": "string"
-		},
-		"scheduleRunDays": {
-			"type": "array"
-		},
-		"scheduleRunTimes": {
-			"type": "array"
-		},
-		"schedulePolicyType": {
-			"type": "string"
-		},
-		"dailyRetentionTimes": {
-			"type": "array"
-		},
-		"dailyRetentionDurationCount": {
-			"type": "int"
-		},
-		"dailyRetentionDurationType": {
-			"type": "string"
-		},
-		"retentionPolicyType": {
-			"type": "string"
-		},
 		"timeZone": {
 			"type": "string"
 		},
@@ -81,19 +51,6 @@
 			"location": "[parameters('envLocation')]",
 			"skuName": "[parameters('skuName')]",
 			"skuTier": "[parameters('skuTier')]"
-		},
-		"backupPolicy": {
-			"backupManagementType": "[parameters('backupManagementType')]",
-			"protectedItemsCount": "[parameters('protectedItemsCount')]",
-			"scheduleRunFrequency": "[parameters('scheduleRunFrequency')]",
-			"scheduleRunDays": "[parameters('scheduleRunDays')]",
-			"scheduleRunTimes": "[parameters('scheduleRunTimes')]",
-			"schedulePolicyType": "[parameters('schedulePolicyType')]",
-			"dailyRetentionTimes": "[parameters('dailyRetentionTimes')]",
-			"dailyRetentionDurationCount": "[parameters('dailyRetentionDurationCount')]",
-			"dailyRetentionDurationType": "[parameters('dailyRetentionDurationType')]",
-			"retentionPolicyType": "[parameters('retentionPolicyType')]",
-			"timeZone": "[parameters('timeZone')]"
 		},
 		"backup": {
 			"name": "[concat(parameters('envPrefix'), '-backup')]",
@@ -143,9 +100,6 @@
 					},
 					"vault": {
 						"value": "[variables('vault')]"
-					},
-					"backupPolicy": {
-						"value": "[variables('backupPolicy')]"
 					},
 					"backup": {
 						"value": "[variables('backup')]"

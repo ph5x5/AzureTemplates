@@ -14,39 +14,6 @@
 		"skuTier": {
 			"value": "Standard"
 		},
-		"backupManagementType": {
-			"value": "AzureIaasVM"
-		},
-		"protectedItemsCount": {
-			"value": 1
-		},
-		"scheduleRunFrequency": {
-			"value": "Weekly"
-		},
-		"scheduleRunDays": {
-			"value": [ "Monday" ]
-		},
-		"scheduleRunTimes": {
-			"value": [ "2018-02-08T17:00:00Z" ]
-		},
-		"schedulePolicyType": {
-			"value": "SimpleSchedulePolicy"
-		},
-		"dailyRetentionTimes": {
-			"value": [ "2018-02-08T19:00:00Z" ]
-		},
-		"dailyRetentionDurationCount": {
-			"value": 1
-		},
-		"dailyRetentionDurationType": {
-			"value": "Days"
-		},
-		"retentionPolicyType": {
-			"value": "LongTermRetentionPolicy"
-		},
-		"timeZone": {
-			"value": "UTC+3"
-		},
 		"vmName": {
 			"value": "learning4-vm"
 		},
