@@ -25,7 +25,7 @@
 			"properties": {
 				"protectedItemType": "[parameters('backup').v2VmType]",
 				"policyId": "[resourceId('Microsoft.RecoveryServices/vaults/backupPolicies', parameters('vault').name, 'DefaultPolicy')]",
-				"sourceResourceId": "[resourceId(subscription().subscriptionId, parameters('general').envPrefix, 'Microsoft.Compute/virtualMachines', parameters('backup').vmName)]"
+				"sourceResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('backup').vmName)]"
 			}
 		}
 	],
