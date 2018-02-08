@@ -20,10 +20,10 @@
 				"backupManagementType": "[parameters('backupPolicy').backupManagementType]",
 				"protectedItemsCount": "[parameters('backupPolicy').protectedItemsCount]"
 				"schedulePolicy": {
-					"scheduleRunFrequency": "[parameters('scheduleRunFrequency')]",
-					"scheduleRunDays": "[parameters('scheduleRunDays')]",
-					"scheduleRunTimes": "[parameters('scheduleRunTimes')]",
-					"schedulePolicyType": "[parameters('schedulePolicyType')]"
+					"scheduleRunFrequency": "[parameters('backupPolicy').scheduleRunFrequency]",
+					"scheduleRunDays": "[parameters('backupPolicy').scheduleRunDays]",
+					"scheduleRunTimes": "[parameters('backupPolicy').scheduleRunTimes]",
+					"schedulePolicyType": "[parameters('backupPolicy').schedulePolicyType]"
 				},
 				"retentionPolicy": {
 				}
