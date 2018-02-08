@@ -18,14 +18,14 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "[concat(parameters('vault').name, '/', parameters('backup').backupFabric, '/', parameters('backup').v2VmContainer, concat(parameters('general').envPrefix, ';', parameters('backup').vmName, '/', parameters('backup').v2Vm))]",
+			"name": "protectedVm",
 			"type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems",
 			"location": "[parameters('backup').location]",
 			"apiVersion": "2016-06-01",
 			"properties": {
 				"protectedItemType": "[parameters('backup').v2VmType]",
 				"policyId": "[resourceId('Microsoft.RecoveryServices/vaults/backupPolicies', parameters('vault').name, 'DefaultPolicy')]",
-				"sourceResourceId": "/subscriptions/f904e53b-c8b7-4111-93b9-d6dcf2aec0c7/resourceGroups/LEARNING4/providers/Microsoft.Compute/virtualMachines/learning4-vm"
+				"sourceResourceId": "[resourceId(subscription().subscriptionId, parameters('general').envPrefix, 'Microsoft.Compute/virtualMachines', parameters('backup').vmName)]"
 			}
 		}
 	],
