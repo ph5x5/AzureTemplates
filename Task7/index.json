@@ -14,9 +14,6 @@
 		"skuTier": {
 			"type": "string"
 		},
-		"timeZone": {
-			"type": "string"
-		},
 		"vmName": {
 			"type": "string"
 		},
