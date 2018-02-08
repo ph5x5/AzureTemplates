@@ -24,10 +24,10 @@
 			"type": "string"
 		},
 		"scheduleRunDays": {
-			"type": "string"
+			"type": "array"
 		},
 		"scheduleRunTimes": {
-			"type": "string"
+			"type": "array"
 		},
 		"schedulePolicyType": {
 			"type": "string"
