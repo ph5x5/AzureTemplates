@@ -1,6 +1,6 @@
 ﻿# Andrey Murzich
 # Task 7
-# Azure Recovery Vault Manipulation
+# Azure Recovery Vault Manipulation (Uses VM created in Task4)
 
 # Templates configuration
 $templateFile = "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task7/index.json"
