@@ -57,10 +57,10 @@
 			"value": "Microsoft.Compute/virtualMachines"
 		},
 		"v2VmContainer": {
-			"value": "iaasvmcontainer;iaasvmcontainerv2"
+			"value": "iaasvmcontainer;iaasvmcontainerv2;"
 		},
 		"v2Vm": {
-			"value": "vm;iaasvmcontainerv2"
+			"value": "vm;iaasvmcontainerv2;"
 		},
 		"vaultTemplateLink": {
 			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task7/nested/vault.json"
