@@ -24,8 +24,6 @@
 					"scheduleRunDays": "[parameters('backupPolicy').scheduleRunDays]",
 					"scheduleRunTimes": "[parameters('backupPolicy').scheduleRunTimes]",
 					"schedulePolicyType": "[parameters('backupPolicy').schedulePolicyType]"
-				},
-				"retentionPolicy": {
 				}
 			}
 		}
