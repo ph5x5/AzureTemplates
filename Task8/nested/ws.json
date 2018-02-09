@@ -33,7 +33,7 @@
 					],
 					"properties": {
 						"DefaultConnection": {
-							"value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', parameters('sql').administratorLogin, '@', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ';Password=', parameters('sql').administratorLoginPassword', ';')]",
+							"value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('sql').dbName, ';User Id=', parameters('sql').administratorLogin, '@', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ';Password=', parameters('sql').administratorLoginPassword', ';')]",
 							"type": "SQLAzure"
 						}
 					}
