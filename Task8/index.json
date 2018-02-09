@@ -92,7 +92,6 @@
 			"apiVersion": "2017-05-10",
 			"name": "hpTemplate",
 			"type": "Microsoft.Resources/deployments",
-			"dependsOn": [	],
 			"properties": {
 				"mode": "Incremental",
 				"templateLink": {
@@ -110,7 +109,6 @@
 			"apiVersion": "2017-05-10",
 			"name": "sqlTemplate",
 			"type": "Microsoft.Resources/deployments",
-			"dependsOn": [	],
 			"properties": {
 				"mode": "Incremental",
 				"templateLink": {

@@ -17,7 +17,7 @@
 			"apiVersion": "2016-03-01",
 			"properties": {
 				"DefaultConnection": {
-					"value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('sql').dbName, ';User Id=', parameters('sql').administratorLogin, '@', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ';Password=', parameters('sql').administratorLoginPassword, ';')]",
+					"value": "[concat('Data Source=tcp:', concat('Microsoft.Sql/servers/', parameters('sql').name), ',1433;Initial Catalog=', parameters('sql').dbName, ';User Id=', parameters('sql').administratorLogin, '@', concat('Microsoft.Sql/servers/', parameters('sql').name), ';Password=', parameters('sql').administratorLoginPassword, ';')]",
 					"type": "SQLAzure"
 				}
 			}
