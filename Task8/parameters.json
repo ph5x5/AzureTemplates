@@ -55,6 +55,9 @@
 		},
 		"wsTemplateLink": {
 			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task8/nested/ws.json"
+		},
+		"csTemplateLink": {
+			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task8/nested/cs.json"
 		}
 	}
 }

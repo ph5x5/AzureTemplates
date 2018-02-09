@@ -1,0 +1,27 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"sql": {
+			"type": "object"
+		},
+		"webSite": {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "Microsoft.Web/sites/connectionstrings",
+			"type": "Microsoft.Web/sites/config",
+			"apiVersion": "2016-03-01",
+			"properties": {
+				"DefaultConnection": {
+					"value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('sql').dbName, ';User Id=', parameters('sql').administratorLogin, '@', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ';Password=', parameters('sql').administratorLoginPassword, ';')]",
+					"type": "SQLAzure"
+				}
+			}
+		}
+	],
+	"outputs": { }
+}

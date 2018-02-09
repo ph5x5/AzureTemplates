@@ -55,6 +55,9 @@
 		},
 		"wsTemplateLink": {
 			"type": "string"
+		},
+		"csTemplateLink": {
+			"type": "string"
 		}
 	},
 	"variables": {
@@ -139,6 +142,29 @@
 					"hostingPlan": {
 						"value": "[variables('hostingPlan')]"
 					},
+					"sql": {
+						"value": "[variables('sql')]"
+					},
+					"webSite": {
+						"value": "[variables('webSite')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "csTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [
+				"wsTemplate"
+			],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('csTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
 					"sql": {
 						"value": "[variables('sql')]"
 					},
