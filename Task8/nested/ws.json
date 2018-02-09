@@ -24,20 +24,7 @@
 				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').name)]"
 			},
 			"resources": [
-				{
-					"name": "connectionstrings",
-					"type": "config",
-					"apiVersion": "2016-03-01",
-					"dependsOn": [
-						"[parameters('webSite').name]"
-					],
-					"properties": {
-						"DefaultConnection": {
-							"value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('sql').dbName, ';User Id=', parameters('sql').administratorLogin, '@', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ';Password=', parameters('sql').administratorLoginPassword, ';')]",
-							"type": "SQLAzure"
-						}
-					}
-				}
+
 			]
 		}
 	],
