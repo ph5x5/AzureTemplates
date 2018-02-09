@@ -17,7 +17,7 @@
 			"apiVersion": "2016-03-01",
 			"properties": {
 				"DefaultConnection": {
-					"value": "[concat('Data Source=tcp:', variables('sqlFQDN'), ',1433;Initial Catalog=', parameters('sql').dbName, ';User Id=', parameters('sql').administratorLogin, '@', variables('sqlFQDN'), ';Password=', parameters('sql').administratorLoginPassword, ';')]",
+					"value": "[concat('Data Source=tcp:', reference('sqlTemplate').outputs.sqlFQDN.value, ',1433;Initial Catalog=', parameters('sql').dbName, ';User Id=', parameters('sql').administratorLogin, '@', reference('sqlTemplate').outputs.sqlFQDN.value, ';Password=', parameters('sql').administratorLoginPassword, ';')]",
 					"type": "SQLAzure"
 				}
 			}
