@@ -126,7 +126,8 @@
 			"name": "wsTemplate",
 			"type": "Microsoft.Resources/deployments",
 			"dependsOn": [
-				"hpTemplate"
+				"hpTemplate",
+				"sqlTemplate"
 			],
 			"properties": {
 				"mode": "Incremental",
