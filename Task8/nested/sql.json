@@ -1,0 +1,54 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"sql": {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[parameters('sql').name]",
+			"type": "Microsoft.Sql/servers",
+			"location": "[parameters('sql').location]",
+			"apiVersion": "2014-04-01",
+			"properties": {
+				"administratorLogin": "[parameters('sql').administratorLogin]",
+				"administratorLoginPassword": "[parameters('sql').administratorLoginPassword]",
+				"version": "[parameters('sql').version]"
+			},
+			"resources": [
+				{
+					"name": "[parameters('sql').dbName]",
+					"type": "databases",
+					"location": "[parameters('sql').location]",
+					"apiVersion": "2015-01-01",
+					"dependsOn": [
+						"[parameters('sql').name]"
+					],
+					"properties": {
+						"edition": "[parameters('sql').dbEdition]",
+						"collation": "[parameters('sql').dbCollation]",
+						"maxSizeBytes": "[parameters('sql').dbMaxSizeBytes]",
+						"requestedServiceObjectiveName": "[parameters('sql').dbRequestedServiceObjectiveName]"
+					}
+				},
+				{
+					"name": "[parameters('sql').fwName]",
+					"type": "firewallrules",
+					"location": "[parameters('sql').location]",
+					"apiVersion": "2014-04-01",
+					"dependsOn": [
+						"[parameters('sql').name]"
+					],
+					"properties": {
+						"endIpAddress": "[parameters('sql').fwEndIpAddress]",
+						"startIpAddress": "[parameters('sql').fwStartIpAddress]"
+					}
+				}
+			]
+		}
+	],
+	"outputs": { }
+}

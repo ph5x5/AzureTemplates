@@ -1,0 +1,45 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"hostingPlan": {
+			"type": "object"
+		},
+		"sql": {
+			"type": "object"
+		},
+		"webSite": {
+			"type": "object"
+		}
+	},
+	"variables": { },
+	"resources": [
+		{
+			"name": "[parameters('webSite').name]",
+			"type": "Microsoft.Web/sites",
+			"location": "[parameters('webSite').location]",
+			"apiVersion": "2016-03-01",
+			"properties": {
+				"name": "[parameters('webSite').name]",
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').name)]"
+			},
+			"resources": [
+				{
+					"name": "connectionstrings",
+					"type": "config",
+					"apiVersion": "2016-03-01",
+					"dependsOn": [
+						"[parameters('webSite').name]"
+					],
+					"properties": {
+						"DefaultConnection": {
+							"value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('databaseName'), ';User Id=', parameters('sql').administratorLogin, '@', reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName, ';Password=', parameters('sql').administratorLoginPassword', ';')]",
+							"type": "SQLAzure"
+						}
+					}
+				}
+			]
+		}
+	],
+	"outputs": { }
+}

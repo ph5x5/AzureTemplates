@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"envPrefix": {
+			"value": "learning8"
+		},
+		"envLocation": {
+			"value": "West Europe"
+		},
+		"skuName": {
+			"value": "S1"
+		},
+		"skuCapacity": {
+			"value": 1
+		},
+		"sqlAdministratorLogin": {
+			"value": "saam"
+		},
+		"sqlAdministratorLoginPassword": {
+			"value": "saAM48"
+		},
+		"sqlVersion": {
+			"value": "12.0"
+		},
+		"databaseEdition": {
+			"value": "Basic"
+		},
+		"databaseCollation": {
+			"value": "SQL_Latin1_General_CP1_CI_AS"
+		},
+		"databaseMaxSizeBytes": {
+			"value": "104857600"
+		},
+		"databaseRequestedServiceObjectiveName": {
+			"value": "Basic"
+		},
+		"fwName": {
+			"value": "AllowAllWindowsAzureIps"
+		},
+		"fwEndIpAddress": {
+			"value": "0.0.0.0"
+		},
+		"fwStartIpAddress": {
+			"value": "0.0.0.0"
+		},
+		"hpTemplateLink": {
+			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task8/nested/hp.json"
+		},
+		"sqlTemplateLink": {
+			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task8/nested/sql.json"
+		},
+		"wsTemplateLink": {
+			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task8/nested/ws.json"
+		}
+	}
+}

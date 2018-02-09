@@ -1,0 +1,149 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"envPrefix": {
+			"type": "string"
+		},
+		"envLocation": {
+			"type": "string"
+		},
+		"skuName": {
+			"type": "string"
+		},
+		"skuCapacity": {
+			"type": "int"
+		},
+		"sqlAdministratorLogin": {
+			"type": "string"
+		},
+		"sqlAdministratorLoginPassword": {
+			"type": "securestring"
+		},
+		"sqlVersion": {
+			"type": "string"
+		},
+		"databaseEdition": {
+			"type": "string"
+		},
+		"databaseCollation": {
+			"type": "string"
+		},
+		"databaseMaxSizeBytes": {
+			"type": "string"
+		},
+		"databaseRequestedServiceObjectiveName": {
+			"type": "string"
+		},
+		"fwName": {
+			"type": "string"
+		},
+		"fwEndIpAddress": {
+			"type": "string"
+		},
+		"fwStartIpAddress": {
+			"type": "string"
+		},
+		"hpTemplateLink": {
+			"type": "string"
+		},
+		"sqlTemplateLink": {
+			"type": "string"
+		},
+		"wsTemplateLink": {
+			"type": "string"
+		}
+	},
+	"variables": {
+		"hostingPlan": {
+			"name": "[concat(parameters('envPrefix'), '-hp')]",
+			"location": "[parameters('envLocation')]",
+			"skuName": "[parameters('skuName')]",
+			"skuCapacity": "[parameters('skuCapacity')]"
+		},
+		"sql": {
+			"name": "[concat(parameters('envPrefix'), '-sql')]",
+			"location": "[parameters('envLocation')]",
+			"administratorLogin": "[parameters('sqlAdministratorLogin')]",
+			"administratorLoginPassword": "[parameters('sqlAdministratorLoginPassword')]",
+			"version": "[parameters('sqlVersion')]",
+			"dbName": "[concat(parameters('envPrefix'), '-db')]",
+			"dbEdition": "[parameters('databaseEdition')]",
+			"dbCollation": "[parameters('databaseCollation')]",
+			"dbMaxSizeBytes": "[parameters('databaseMaxSizeBytes')]",
+			"dbRequestedServiceObjectiveName": "[parameters('databaseRequestedServiceObjectiveName')]",
+			"fwName": "[parameters('fwName')]",
+			"fwEndIpAddress": "[parameters('fwEndIpAddress')]",
+			"fwStartIpAddress": "[parameters('fwStartIpAddress')]"
+		},
+		"webSite": {
+			"name": "[parameters('relativeName')]",
+			"location": "[parameters('envLocation')]"
+		}
+	},
+	"resources": [
+		{
+			"apiVersion": "2017-05-10",
+			"name": "hpTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [	],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('hpTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"hostingPlan": {
+						"value": "[variables('hostingPlan')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "sqlTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [	],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('sqlTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"sql": {
+						"value": "[variables('sql')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2017-05-10",
+			"name": "wsTemplate",
+			"type": "Microsoft.Resources/deployments",
+			"dependsOn": [
+				"hpTemplate"
+			],
+			"properties": {
+				"mode": "Incremental",
+				"templateLink": {
+					"uri": "[parameters('wsTemplateLink')]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"hostingPlan": {
+						"value": "[variables('hostingPlan')]"
+					},
+					"sql": {
+						"value": "[variables('sql')]"
+					},
+					"webSite": {
+						"value": "[variables('webSite')]"
+					}
+				}
+			}
+		}
+	],
+	"outputs": { }
+}
