@@ -15,10 +15,10 @@
 			"value": 1
 		},
 		"sqlAdministratorLogin": {
-			"value": "saam"
+			"value": "saamSAAM"
 		},
 		"sqlAdministratorLoginPassword": {
-			"value": "dfgjdfglkjdklsj5345GFGSgdfghd"
+			"value": "dfgjdfglkjdklsj5345GFGSgdfghd$$$"
 		},
 		"sqlVersion": {
 			"value": "12.0"
