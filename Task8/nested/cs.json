@@ -12,7 +12,7 @@
 	"variables": { },
 	"resources": [
 		{
-			"name": "Microsoft.Web/sites/connectionstrings",
+			"name": "[concat('Microsoft.Web/sites/', parameters('webSite').name, '/connectionstrings')]",
 			"type": "Microsoft.Web/sites/config",
 			"apiVersion": "2016-03-01",
 			"properties": {
