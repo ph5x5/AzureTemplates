@@ -13,6 +13,8 @@ $storageAccountName = "csbf904e53bc8b7x4111x93b"
 # Account Login
 #Login-AzureRmAccount
 
+$vault = Get-AzureRmRecoveryServicesVault -Name "$envPrefix-vault"
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 $container = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -FriendlyName "AzureBackup_$envPrefix-vm"
 $backupItem = Get-AzureRmRecoveryServicesBackupItem -WorkloadType AzureVM -Container $container
 $RP = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupItem -StartDate $startDate.ToUniversalTime() -EndDate $endDate.ToUniversalTime()
