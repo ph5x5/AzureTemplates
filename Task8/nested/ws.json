@@ -22,10 +22,7 @@
 			"properties": {
 				"name": "[parameters('webSite').name]",
 				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlan').name)]"
-			},
-			"resources": [
-
-			]
+			}
 		}
 	],
 	"outputs": { }
