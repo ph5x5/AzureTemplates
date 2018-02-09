@@ -168,6 +168,9 @@
 					},
 					"webSite": {
 						"value": "[variables('webSite')]"
+					},
+					"sqlFQDN": {
+						"value": "[reference('Microsoft.Resources/deployments/sqlTemplate').outputs.sqlFQDN.value]"
 					}
 				}
 			}

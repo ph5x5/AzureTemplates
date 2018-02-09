@@ -7,6 +7,9 @@
 		},
 		"webSite": {
 			"type": "object"
+		},
+		"sqlFQDN": {
+			"type": "string"
 		}
 	},
 	"variables": { },
@@ -17,7 +20,7 @@
 			"apiVersion": "2016-03-01",
 			"properties": {
 				"DefaultConnection": {
-					"value": "[concat('Data Source=tcp:', reference('Microsoft.Resources/deployments/sqlTemplate').outputs.sqlFQDN.value, ',1433;Initial Catalog=', parameters('sql').dbName, ';User Id=', parameters('sql').administratorLogin, '@', reference('Microsoft.Resources/deployments/sqlTemplate').outputs.sqlFQDN.value, ';Password=', parameters('sql').administratorLoginPassword, ';')]",
+					"value": "[concat('Data Source=tcp:', parameters('sqlFQDN'), ',1433;Initial Catalog=', parameters('sql').dbName, ';User Id=', parameters('sql').administratorLogin, '@', parameters('sqlFQDN'), ';Password=', parameters('sql').administratorLoginPassword, ';')]",
 					"type": "SQLAzure"
 				}
 			}
