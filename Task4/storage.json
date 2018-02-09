@@ -1,0 +1,45 @@
+{
+  "plan": null,
+  "properties.hardwareProfile": {
+    "vmSize": "Standard_A3"
+  },
+  "properties.storageProfile": {
+    "imageReference": null,
+    "osDisk": {
+      "osType": "Windows",
+      "encryptionSettings": null,
+      "name": "d-c1950b17ff1b4a8d8c885cb81e85fcd1-osdisk-000",
+      "vhd": {
+        "uri": "https://csbf904e53bc8b7x4111x93b.blob.core.windows.net/vhde713ee7ff69447aa9c2708d74434c1a7/bc1950b17ff1b4a8d8c885cb81e85fcd1.vhd"
+      },
+      "image": null,
+      "caching": "ReadWrite",
+      "createOption": "attach",
+      "diskSizeGB": null
+    },
+    "dataDisks": []
+  },
+  "properties.osProfile": null,
+  "properties.networkProfile": {
+    "networkInterfaces": [
+      {
+        "properties.primary": true,
+        "id": "/subscriptions/f904e53b-c8b7-4111-93b9-d6dcf2aec0c7/resourceGroups/learning4/providers/Microsoft.Network/networkInterfaces/learning4-vm-if"
+      }
+    ]
+  },
+  "properties.diagnosticsProfile": null,
+  "properties.availabilitySet": null,
+  "properties.provisioningState": null,
+  "properties.instanceView": null,
+  "properties.licenseType": null,
+  "properties.vmId": null,
+  "resources": null,
+  "id": null,
+  "name": null,
+  "type": null,
+  "location": "westeurope",
+  "tags": {
+    "displayName": "learning4-vm"
+  }
+}
