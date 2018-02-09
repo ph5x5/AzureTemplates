@@ -50,5 +50,7 @@
 			]
 		}
 	],
-	"outputs": { }
+	"outputs": {
+		"sqlFQDN": "[reference(concat('Microsoft.Sql/servers/', parameters('sql').name)).fullyQualifiedDomainName]"
+	}
 }
