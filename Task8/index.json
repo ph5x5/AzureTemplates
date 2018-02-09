@@ -44,6 +44,9 @@
 		"fwStartIpAddress": {
 			"type": "string"
 		},
+		"relativeName": {
+			"type": "string"
+		},
 		"hpTemplateLink": {
 			"type": "string"
 		},

@@ -44,6 +44,9 @@
 		"fwStartIpAddress": {
 			"value": "0.0.0.0"
 		},
+		"relativeName": {
+			"value": "MYSECONDSQLWEBAPP"
+		},
 		"hpTemplateLink": {
 			"value": "https://raw.githubusercontent.com/ph5x5/AzureTemplates/master/Task8/nested/hp.json"
 		},
