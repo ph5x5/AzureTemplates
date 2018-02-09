@@ -17,4 +17,3 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $envPrefix `
                                    -TemplateFile $templateFile `
                                    -TemplateParameterUri $templateParameterUri `
                                    -Force -Verbose
-
